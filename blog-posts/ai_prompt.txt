@@ -1,0 +1,31 @@
+
+
+Treat the above files as individual blog posts in the /blog-posts directory. 
+
+For each file, improve the blog post. If this is a Lorem Ipsum text, don't change the content, and ignore the next instruction about the audience.
+
+The audience of the blog post is fellow IT professionals, so it's important to maintain technical accuracy, consiseness, and professionality.
+
+Move the results into the /blog-posts/improved directory, while also appending "-improved" to the end of the new file name.
+
+Generate a block of YAML for each blog post according to the following schematic:
+
+---
+filename: <insert the new file name here>
+id: <generate a unique and short two-to-three-word id for the blog post. Ensure each blog post has its own unique id. If the blog post is very similar in topic to another post, it should have the same id, but with a number appended to the end. The number should increase as posts become more recent.>
+idprev: <insert the id of the blog post that would logically precede this one, using clues such as id, content, and date. You can leave this blank otherwise.>
+date: <insert the current date in MM-DD-YYYY format>
+author: Dzenis Zigo
+title: <generate a title for the blog post>
+description: <generate a description for the blog post (one or two sentences)>
+tags: ["security"]
+score: <give this improved blog post a score of 0 to 100 (with 50 being an average blog post). Include factors such as SEO (Search Engine Optimization), usefulness, and how interesting the content and topic is. Base64 Encode this value.>
+---
+
+Add this resulting YAML to the file /blog-posts/improved/yaml/posts.yml 
+
+Ensure that each blog post in the /blog-posts/improved directory has its own YAML block in the posts.yml file.
+
+If a YAML block already exists for a blog post, make minimal changes to the existing YAML block. However
+
+
