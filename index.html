@@ -801,10 +801,35 @@
 
 				<div class="col-lg-4">
 					<div style="position: static !important;" class="blog1-sidebar-area ml-30 sm:ml-0 md:ml-0 md:mt-30 sm:mt-30">
+
+						<!-- Author pictures (rounded corners and responsive sizes)-->
+						<style>
+							.my-author-image {
+								border-radius: 55%; 
+							}
+
+							@media (max-width: 991px) { 
+								.my-author-image { 
+									max-width: 250px;
+								}
+							}
+ 							/* 575px 767px 991px 1024px */
+							@media (max-width: 767px) { 
+								.my-author-image { 
+									max-width: 250px;
+								}
+							}
+							@media (min-width: 992px) { 
+								.my-author-image { 
+									max-width: 175px;
+								}
+							}
+						</style>
+
 						<div class="sidebar-widget_1 _author-intro mt-40" style="margin-top: 0px; margin-bottom: 40px;">
 							<div class="sidebar-author-thumb text-center">
-								<img src="assets/img/blog/sidebar-author1.png" alt="vexon" />
-								<h4>Jerry Helfer</h4>
+								<img class="my-author-image" src="pics/p1.jpg" alt="Dzenis Profile Picture" />
+								<h4>Allen Davis</h4>
 								<div class="heading1">
 									<p>IT enthusiast with a B.S. from the University of Illinois and a CompTIA A+ certification.</p>
 								</div>
@@ -828,8 +853,8 @@
 						</div>
 						<div class="sidebar-widget_1 _author-intro mt-40" style="margin-top: 0px; margin-bottom: 40px;">
 							<div class="sidebar-author-thumb text-center">
-								<img src="assets/img/blog/sidebar-author1.png" alt="vexon" />
-								<h4>Jerry Helfer</h4>
+								<img class="my-author-image" src="assets/img/blog/sidebar-author1.png" alt="vexon" />
+								<h4>Allen Davis</h4>
 								<div class="heading1">
 									<p>IT enthusiast with a B.S. from the University of Illinois and a CompTIA A+ certification.</p>
 								</div>
