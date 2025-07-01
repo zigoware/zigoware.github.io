@@ -428,7 +428,7 @@
 				<div class="col-lg-8">
 					<div class="blog1-posts-area">
 						<div class="row">
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="0">
+							<div id="post-template" class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="0">
 								<div class="blog1-single-box">
 									<div class="thumbnail image-anime">
 										<img src="assets/img/blog/blog1-image1.png" alt="vexon" />
@@ -457,6 +457,51 @@
 									</div>
 								</div>
 							</div>
+
+							<!-- Script to fix template: to stop scrolling/animation behavior of blog post cards if entering page from bottom -->
+							<script>
+								const styleToStopScrollingBehavior = "opacity: 1 !important; transform: none !important;";
+
+								try {
+									// === 1 is for reload, 2 is for back navigation
+									const pageAccessedByReload = (
+										(window.performance.navigation && window.performance.navigation.type === 1) ||
+										(window.performance.navigation && window.performance.navigation.type === 2) ||
+										window.performance
+											.getEntriesByType('navigation')
+											.map((nav) => nav.type)
+											.some(value => ['reload', 'back_forward'].includes(value))
+									);
+
+									if (pageAccessedByReload) {
+										//console.info( "This page is reloaded or (back-button was pressed)" );
+										
+										document.getElementById("post-template").style = styleToStopScrollingBehavior;
+									} else {
+										//console.info( "This page is not reloaded" );
+									}
+								} catch (error) {
+									console.error("Error checking page reload!", error);
+
+									document.getElementById("post-template").style = styleToStopScrollingBehavior;
+								}
+								/* Apparently this method below isn't supported
+								if (!window.performance) {
+									console.info("window.performance NOT WORKING on this browser");
+
+									document.getElementById("post-template").style = styleToStopScrollingBehavior;
+								} else {
+									console.info(performance.navigation.type);
+
+									if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+										console.info( "This page is reloaded" );
+
+										document.getElementById("post-template").style = styleToStopScrollingBehavior;
+									} else {
+										console.info( "This page is not reloaded");
+									}
+								} */
+							</script>
 
 							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="100">
 								<div class="blog1-single-box sm:mt-30">
@@ -756,41 +801,61 @@
 
 				<div class="col-lg-4">
 					<div class="blog1-sidebar-area ml-30 sm:ml-0 md:ml-0 md:mt-30 sm:mt-30">
+						<div class="sidebar-widget_1 _author-intro mt-40" style="margin-top: 0px; margin-bottom: 40px;">
+							<div class="sidebar-author-thumb text-center">
+								<img src="assets/img/blog/sidebar-author1.png" alt="vexon" />
+								<h4>Jerry Helfer</h4>
+								<div class="heading1">
+									<p>IT enthusiast with a B.S. from the University of Illinois and a CompTIA A+ certification.</p>
+								</div>
+								<div class="footer-social1">
+									<ul>
+										<li>
+											<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="fa-brands fa-github"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="fa-solid fa-download"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="fa-light fa-file"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="sidebar-widget_1 _author-intro mt-40" style="margin-top: 0px; margin-bottom: 40px;">
+							<div class="sidebar-author-thumb text-center">
+								<img src="assets/img/blog/sidebar-author1.png" alt="vexon" />
+								<h4>Jerry Helfer</h4>
+								<div class="heading1">
+									<p>IT enthusiast with a B.S. from the University of Illinois and a CompTIA A+ certification.</p>
+								</div>
+								<div class="footer-social1">
+									<ul>
+										<li>
+											<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="fa-brands fa-github"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="fa-solid fa-download"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="fa-light fa-file"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
 						<div class="sidebar-widget_1 _search-area1">
 							<h3>Search</h3>
 							<form action="#">
 								<input type="text" placeholder="Search..." />
 							</form>
-						</div>
-						<div class="sidebar-widget_1 _author-intro mt-40">
-							<div class="sidebar-author-thumb text-center">
-								<img src="assets/img/blog/sidebar-author1.png" alt="vexon" />
-								<h4>Jerry Helfer</h4>
-								<div class="heading1">
-									<p>Whether you’re a tech enthusiast or a business leader, these emerging trends are
-										reshaping the future and offering endless opportunities for growth and
-										creativity.</p>
-								</div>
-								<div class="footer-social1">
-									<ul>
-										<li>
-											<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-										</li>
-										<li>
-											<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-										</li>
-										<li>
-											<a href="#"><i class="fa-brands fa-instagram"></i></a>
-										</li>
-										<li>
-											<a href="#"><i class="fa-regular fa-basketball"></i></a>
-										</li>
-										<li>
-											<a href="#"><i class="fa-brands fa-behance"></i></a>
-										</li>
-									</ul>
-								</div>
-							</div>
 						</div>
 						<div class="sidebar-widget_1 _recent-posts mt-40">
 							<h3>Recent Post</h3>
@@ -916,28 +981,6 @@
 									<h4><a href="blog-single.html">Handling Negative Feedback: Maintaining Brand
 											Reputation on Social Media</a></h4>
 								</div>
-							</div>
-						</div>
-						<div class="sidebar-widget_1 mt-70 _experience">
-							<h3>Work Experience</h3>
-							<div class="_experience-box divider">
-								<p class="bold-text">Product Design</p>
-								<p class="normal-text">2020 - Now</p>
-							</div>
-
-							<div class="_experience-box divider">
-								<p class="bold-text">Brand Expertise</p>
-								<p class="normal-text">2018 - Now</p>
-							</div>
-
-							<div class="_experience-box divider">
-								<p class="bold-text">UI/UX Design</p>
-								<p class="normal-text">2021 - Now</p>
-							</div>
-
-							<div class="_experience-box">
-								<p class="bold-text">SEO Expert</p>
-								<p class="normal-text">2019 - Now</p>
 							</div>
 						</div>
 
