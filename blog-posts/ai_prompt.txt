@@ -18,6 +18,7 @@ date: <insert the current date in MM-DD-YYYY format>
 author: Dzenis Zigo
 title: <generate a title for the blog post>
 description: <generate a description for the blog post (one or two sentences)>
+thumbnail: /pics/thumbnails/t1.png
 tags: ["security"]
 score: <give this improved blog post a score of 0 to 100 (with 50 being an average blog post). Include factors such as SEO (Search Engine Optimization), usefulness, and how interesting the content and topic is. Base64 Encode this value.>
 ---
