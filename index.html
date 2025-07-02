@@ -433,13 +433,25 @@
 					<div class="blog1-posts-area">
 						<div class="row">
 							<div id="post-template" hidden class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="0">
-								<div class="blog1-single-box">
-									<div class="thumbnail image-anime">
+								<div class="position-relative blog1-single-box">
+									<div class="thumbnail image-anime position-relative" style="z-index: 2;">
+
 										<img id="thumbnail" src="assets/img/blog/blog1-image1.png" alt="generic thumbnail image" />
+										
+										<a id="thumbnail-stretched-link" class="stretched-link" href="#"></a>
+										
+										<style>
+											#thumbnail-stretched-link:after {
+												z-index: 2;
+											}
+											.thumbnail:hover {
+												cursor: pointer;
+											}
+										</style>
 									</div>
 									<div class="heading1">
 										<div class="social-area">
-											<a id="category" href="categories.html?category=social-media" class="social">Example Category</a>
+											<a id="category" style="z-index: 2;" href="categories.html?category=social-media" class="social">Example Category</a>
 											<a todo="remove link" href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="small clock icon" />
 												<span id="timetoread">
 													 xy min read
@@ -455,19 +467,25 @@
 												<div class="author-tumb">
 													<img id="author-thumbnail" src="assets/img/blog/blog1-author1.png" alt="small author portrait thumbnail" />
 												</div>
-												<a id="author" href="author.html" class="author-text">Kimberly Mastrangelo</a>
+												<a id="author" style="z-index: 2;" href="author.html" class="author-text">Kimberly Mastrangelo</a>
 											</div>
 											<div id="tempid" style="margin-left: auto; margin-right: 0; padding-left: 0px;" class="date">
 												<a style="content: none;" href="#"><img src="assets/img/icons/date1.svg" alt="small calendar icon" />
 													<span id="date">Oct 26, 2035</span> 
 												</a>
 												<style>
+													.author-text:hover {
+														transition: all 0.4s;
+														color: #4b1ab3 !important;
+													}
+
 													/* Hide the vertical bar between author name and date (in a post card) */
 													#tempid::after { display: none; }
 												</style>
 											</div>
 										</div>
 									</div>
+									<a class="stretched-link" href="#"></a>
 								</div>
 							</div>
 
@@ -1019,14 +1037,14 @@
 						<div style="margin-bottom: 40px;" class="sidebar-widget_1 _recent-posts mt-40">
 							<h3>Newest Posts</h3>
 
-							<div id="recent-post-template" hidden style="align-items: start;" class="blog1-recent-box">
+							<div id="recent-post-template" hidden style="align-items: start;" class="position-relative blog1-recent-box">
 								<div class="">
 									<div class="recent-thumb">
 										<img id="thumbnail" style="object-fit: cover; height: 82px; border-radius: 15%; margin-top: 4px;" src="assets/img/blog/blog1-recent1.png" alt="generic thumbnail image" />
 									</div>
 								</div>
 								<div class="heading">
-									<a href="#" class="date"><img src="assets/img/icons/date1.svg" alt="small calendar icon"/> 
+									<a class="date"><img src="assets/img/icons/date1.svg" alt="small calendar icon"/> 
 										<span id="date">
 											Oct 31, 2035
 										</span>
@@ -1036,6 +1054,7 @@
 										Voice...
 									</a></h5>
 								</div>
+								<a class="stretched-link" href="#"></a>
 							</div>
 
 							<script>
@@ -1090,6 +1109,8 @@
 										
 										let newTitle = cutOffStringAtMaxCharacters(myPost.title, 55)
 										recentPostClone.querySelector("#title").textContent = newTitle;
+
+										recentPostClone.querySelector(".stretched-link").href = "blog-single.html"; // Set the link to the blog single page
 
 										recentPostTemplate.parentElement.appendChild(recentPostClone);
 									});
