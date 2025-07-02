@@ -24,6 +24,9 @@
 
 	<!--=====JQUERY=======-->
 	<script src="assets/js/jquery-3-7-1.min.js"></script>
+
+	<!-- DAYJS -->
+	<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 </head>
 
 <body>
@@ -408,6 +411,12 @@
 	</div>
 
 	<!--===== HERO AREA END=======-->
+
+	<script>
+		const postId = new URLSearchParams(window.location.search).get('id');
+
+		console.log(postId);
+	</script>
 
 	<!--===== BLOG DETAILS AREA START=======-->
 

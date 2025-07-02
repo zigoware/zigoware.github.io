@@ -438,10 +438,10 @@
 
 										<img id="thumbnail" src="assets/img/blog/blog1-image1.png" alt="generic thumbnail image" />
 										
-										<a id="thumbnail-stretched-link" class="stretched-link" href="#"></a>
+										<a class="stretched-link" href="#"></a>
 										
 										<style>
-											#thumbnail-stretched-link:after {
+											.thumbnail .stretched-link:after {
 												z-index: 2;
 											}
 											.thumbnail:hover {
@@ -629,6 +629,10 @@
 										postClone.querySelector("#date").textContent = theDate.format("MMM D, YYYY");
 
 										postClone.querySelector("#timetoread").textContent = " " + post.timetoread + " min read";
+
+										postClone.querySelectorAll(".stretched-link").forEach( link => {
+											link.href = "blog-post.html?id=" + post.id;
+										});
 
 										container.appendChild(postClone);
 									});
@@ -1081,7 +1085,6 @@
 										}
 									};
 
-									console.log("Final string: " + finalStr);
 									return finalStr;
 								}
 								function populateRecentPosts() {
@@ -1110,7 +1113,7 @@
 										let newTitle = cutOffStringAtMaxCharacters(myPost.title, 55)
 										recentPostClone.querySelector("#title").textContent = newTitle;
 
-										recentPostClone.querySelector(".stretched-link").href = "blog-single.html"; // Set the link to the blog single page
+										recentPostClone.querySelector(".stretched-link").href = "blog-post.html?id=" + myPost.id; // Set the link to the blog single page
 
 										recentPostTemplate.parentElement.appendChild(recentPostClone);
 									});
