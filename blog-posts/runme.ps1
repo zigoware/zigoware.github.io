@@ -34,10 +34,10 @@ foreach ($line in $d) {
         $finalPrompt += "$line`n"
 
         # remove .md from file name
-        $line = $line.Substring(0, $line.LastIndexOf(".md")) 
+        #$line = $line.Substring(0, $line.LastIndexOf(".md")) 
 
         # create new, blank, file
-        New-Item -Path ".\improved\$line-improved.md" -ItemType File -Force | out-null # | out-null suppresses output
+        #New-Item -Path ".\improved\$line-improved.md" -ItemType File -Force | out-null # | out-null suppresses output
     }
 }
 
