@@ -218,8 +218,8 @@ The organizations that embrace green IT principles today will not only reduce th
 <!---
 orig: it-sustainability.md
 id: it-sustainability
-idprev: 
-date: 07-02-2025
+idprev:
+date: 09-14-2035
 author: Dzenis Zigo
 title: IT's Strategic Role in Environmental Sustainability: Green Technology Leadership
 description: Comprehensive guide to implementing sustainable IT practices, from infrastructure optimization to green software development and environmental governance.

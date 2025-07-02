@@ -65,7 +65,7 @@ The question isn't whether to adopt AIOps, but how quickly your organization can
 orig: aiops-it-operations.md
 id: aiops-transformation
 idprev: 
-date: 07-02-2025
+date: 01-23-2035
 author: Dzenis Zigo
 title: How AI Is Transforming IT Operations: The AIOps Revolution
 description: Explore how AIOps is revolutionizing IT operations through predictive analytics, intelligent automation, and enhanced incident response capabilities.

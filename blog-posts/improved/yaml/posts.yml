@@ -2,7 +2,7 @@
 orig: aiops-it-operations.md
 id: aiops-transformation
 idprev: 
-date: 07-02-2025
+date: 01-23-2035
 author: Dzenis Zigo
 title: How AI Is Transforming IT Operations: The AIOps Revolution
 description: Explore how AIOps is revolutionizing IT operations through predictive analytics, intelligent automation, and enhanced incident response capabilities.
@@ -16,7 +16,7 @@ score: ODI=
 orig: cloud-native-benefits.md
 id: cloud-native-benefits
 idprev: 
-date: 07-02-2025
+date: 04-17-2035
 author: Dzenis Zigo
 title: The Strategic Benefits of Cloud-Native Infrastructure
 description: Comprehensive analysis of cloud-native infrastructure benefits including accelerated development, enhanced resilience, and cost optimization strategies.
@@ -30,7 +30,7 @@ score: ODU=
 orig: common-it-issues.md
 id: it-support-essentials
 idprev: 
-date: 07-02-2025
+date: 02-28-2035
 author: Dzenis Zigo
 title: 5 Common IT Support Issues and How to Solve Them Efficiently
 description: Comprehensive guide to the most frequent IT support challenges with proven solutions for IT professionals seeking efficient problem resolution.
@@ -44,7 +44,7 @@ score: ODY=
 orig: cybersecurity-awareness.md
 id: security-awareness-training
 idprev: 
-date: 07-02-2025
+date: 05-21-2035
 author: Dzenis Zigo
 title: The Critical Role of Cybersecurity Awareness Training in Modern Enterprise Security
 description: Comprehensive analysis of why cybersecurity awareness training remains essential for enterprise defense strategies in today's evolving threat landscape.
@@ -58,7 +58,7 @@ score: ODg=
 orig: endpoint-security-2025.md
 id: endpoint-security-2025
 idprev: security-awareness-training
-date: 07-02-2025
+date: 07-09-2035
 author: Dzenis Zigo
 title: Endpoint Security in 2025: Critical Protection for Modern IT Infrastructure
 description: Comprehensive guide to endpoint security strategies, threats, and best practices for protecting modern distributed IT environments.
@@ -72,7 +72,7 @@ score: ODk=
 orig: it-sustainability.md
 id: it-sustainability
 idprev: 
-date: 07-02-2025
+date: 09-14-2035
 author: Dzenis Zigo
 title: IT's Strategic Role in Environmental Sustainability: Green Technology Leadership
 description: Comprehensive guide to implementing sustainable IT practices, from infrastructure optimization to green software development and environmental governance.
@@ -86,7 +86,7 @@ score: OTA=
 orig: ransomware-backups.md
 id: ransomware-backup-defense
 idprev: endpoint-security-2025
-date: 07-02-2025
+date: 11-03-2035
 author: Dzenis Zigo
 title: Ransomware Defense: Building a Bulletproof Backup Strategy
 description: Comprehensive guide to architecting enterprise backup strategies that provide robust defense against ransomware attacks and ensure business continuity.
@@ -100,7 +100,7 @@ score: ODc=
 orig: zero-trust-architecture.md
 id: zero-trust-architecture
 idprev: ransomware-backup-defense
-date: 07-02-2025
+date: 12-08-2035
 author: Dzenis Zigo
 title: Zero Trust Architecture: Implementing Next-Generation Security Models
 description: Comprehensive guide to implementing Zero Trust Architecture for modern enterprise environments, covering core principles, implementation strategies, and advanced security components.

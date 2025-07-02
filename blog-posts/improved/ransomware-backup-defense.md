@@ -78,7 +78,7 @@ Remember: ransomware actors specifically target backup infrastructure. Your back
 orig: ransomware-backups.md
 id: ransomware-backup-defense
 idprev: endpoint-security-2025
-date: 07-02-2025
+date: 11-03-2035
 author: Dzenis Zigo
 title: Ransomware Defense: Building a Bulletproof Backup Strategy
 description: Comprehensive guide to architecting enterprise backup strategies that provide robust defense against ransomware attacks and ensure business continuity.

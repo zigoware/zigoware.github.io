@@ -116,8 +116,8 @@ Implement PowerShell DSC, Group Policy, or configuration management tools to pre
 <!---
 orig: common-it-issues.md
 id: it-support-essentials
-idprev: 
-date: 07-02-2025
+idprev:
+date: 02-28-2035
 author: Dzenis Zigo
 title: 5 Common IT Support Issues and How to Solve Them Efficiently
 description: Comprehensive guide to the most frequent IT support challenges with proven solutions for IT professionals seeking efficient problem resolution.

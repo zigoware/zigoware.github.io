@@ -150,8 +150,8 @@ The return on investment for effective security awareness training extends beyon
 <!---
 orig: cybersecurity-awareness.md
 id: security-awareness-training
-idprev: 
-date: 07-02-2025
+idprev:
+date: 05-21-2035
 author: Dzenis Zigo
 title: The Critical Role of Cybersecurity Awareness Training in Modern Enterprise Security
 description: Comprehensive analysis of why cybersecurity awareness training remains essential for enterprise defense strategies in today's evolving threat landscape.
