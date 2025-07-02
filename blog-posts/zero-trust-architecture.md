@@ -1,7 +1,7 @@
 
 # The Rise of Zero Trust Architecture in Enterprise IT
 
-*This post was generated using AI*
+*This post was generated using AI* 
 
 As cyber threats become increasingly sophisticated, companies are moving beyond traditional perimeter-based security models. One of the most transformative approaches is Zero Trust Architecture (ZTA), which assumes no user or system should be trusted by default — even if inside the network.
 

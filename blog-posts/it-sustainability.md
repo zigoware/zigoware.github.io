@@ -1,7 +1,7 @@
 
 # The Role of IT in Environmental Sustainability
 
-*This post was generated using AI*
+*This post was generated using AI* 
 
 Technology isn’t just transforming business — it’s helping to shape a greener, more sustainable world. IT departments have a critical role to play in reducing environmental impact.
 

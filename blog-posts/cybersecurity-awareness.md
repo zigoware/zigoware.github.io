@@ -1,7 +1,7 @@
 
 # Why Cybersecurity Awareness Training Still Matters
 
-*This post was generated using AI*
+*This post was generated using AI* 
 
 With phishing attacks, social engineering, and insider threats on the rise, cybersecurity is no longer just an IT concern — it’s everyone’s responsibility.
 

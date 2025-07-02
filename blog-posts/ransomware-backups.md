@@ -1,7 +1,7 @@
 
 # The Importance of Backups in Ransomware Defense
 
-*This post was generated using AI*
+*This post was generated using AI* 
 
 Ransomware attacks are on the rise, with organizations facing costly downtime, data loss, and reputation damage. A robust backup strategy is your best defense.
 

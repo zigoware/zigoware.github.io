@@ -1,7 +1,7 @@
 
 # The Benefits of Cloud-Native Infrastructure
 
-*This post was generated using AI*
+*This post was generated using AI* 
 
 Modern businesses are embracing cloud-native infrastructure to achieve agility, scalability, and resilience. But what exactly does “cloud-native” mean — and why is it more than just a buzzword?
 
