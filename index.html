@@ -608,8 +608,12 @@
 											postClone.dataset.aosDelay = 100;
 
 										// add bottom margin for cards in second row and below
-										if (postIndex >= 2)
-											postClone.classList.add("mt-30");
+										if (postIndex == 1) {
+											postClone.querySelector(".blog1-single-box").classList.add("sm:mt-30");
+										}
+										else if (postIndex >= 2) {
+											postClone.querySelector(".blog1-single-box").classList.add("mt-30");
+										}
 
 										postIndex++;
 
