@@ -95,7 +95,23 @@ Cloud-native infrastructure transformation represents a fundamental shift in how
 
 Success requires strategic planning, gradual implementation, and investment in team capabilities. Organizations that embrace cloud-native principles position themselves for sustained growth in an increasingly digital marketplace.
 
-The transition to cloud-native is not merely a technology upgrade—it's an operational transformation that enables businesses to thrive in a cloud-first world.
+The transition to cloud-native is not merely a technology upgrade—it's an operational transformation that enables businesses to thrive in a ==cloud-first world.== ??Marked text??
+
+```typescript
+var foo = function (bar) {
+  return bar++;
+};
+
+console.log(foo(5));
+```
+
+## Tables
+
+| Option | Description |
+| ------ | ----------- |
+| data   | path to data files to supply the data that will be passed into templates. |
+| engine | engine to be used for processing templates. Handlebars is the default. |
+| ext    | extension to be used for dest files. |
 
 <!---
 orig: cloud-native-benefits.md
