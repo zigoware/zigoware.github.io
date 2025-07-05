@@ -536,6 +536,11 @@
 
 							<!-- Script to download blog post metadata and populate post cards using post-template-->
 							<script>
+								if (window.location.protocol === "file:") {
+									console.log("The application is running from a local file.");
+								} else {
+									console.log("The application is running from a web server.");
+								}
 								const posts = [];
 
 								fetch('http://localhost:5000/posts.yml')
@@ -1083,7 +1088,7 @@
 												finalStr = newStr; // Add the word if it doesn't exceed the limit
 											} else {
 												finalStr = finalStr + "...";
-												console.log("Exceeds limit, stopping at: " + finalStr);
+												//console.log("Exceeds limit, stopping at: " + finalStr);
 												break; // Return the string with ellipsis if it exceeds the limit
 											}
 										}
