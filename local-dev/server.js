@@ -19,11 +19,90 @@ app.get("/posts.yml", function(req, res, next) {
   
 });
 
+function loadRegistrationPrompt(filename, res) {
+  fs.readFile('./ai_prompt_registerblogpost.txt', 'utf8', (err, prompt) => {
+      //copy the prompt to the clipboard
+      prompt = `${filename}` + prompt;
+      require('child_process').spawn('clip').stdin.end(prompt);
+      console.log(`Registration prompt for ${filename} copied to clipboard!`);
+      
+      return res.status(201).send();
+  });
+}
+
+app.get("/checkForBlogPostConfigUpdate", (req, res, next) => {
+  var configUpdateRequired = false;
+  console.log('checking for blog post config update');
+
+  fs.readFile('../blog-posts/posts.yml', 'utf8', (err, yamlFile) => {
+    console.log('examining file: ../blog-posts/posts.yml');
+
+    const yamlLines = yamlFile.split('\n');
+    let yamlIdArr = [];
+    yamlLines.forEach(line => {
+      // Skip empty lines
+      if (line.trim() !== '') {
+        const [key, ...value] = line.split(':');
+        console.log(`Key: ${key}, Value: ${value}`);
+        if (key.trim() === 'id') {
+          yamlIdArr.push(value.toString().trim()); //unknown what trim does
+        }
+      }
+    });
+
+    var registrationRequired = false;
+    fs.readdir('../blog-posts/', (err, files) => {
+        if (err) {
+            console.error('Error reading directory:', err);
+            return res.status(400).send();
+        }
+
+        console.log('Files in the directory:');
+        var mdFiles = files.filter(file => file.endsWith('.md'));
+        console.log(`Found ${mdFiles.length} markdown files.`);
+        mdFiles.forEach(mdFile => {
+            //if (file.endsWith('.md')) {
+              console.log(`Found markdown file: ${mdFile}`);
+              const id = mdFile.replace('.md', '');
+            
+              if (yamlIdArr.includes(id) == false) {
+                  console.log(`Registration required for: ${mdFile}`);
+                  registrationRequired = true
+                  return loadRegistrationPrompt(mdFile, res);
+              }
+            //}
+            console.log(mdFile);
+        });
+
+        if (mdFiles.length !== yamlIdArr.length && !registrationRequired) {
+            console.error(`Number of md files (${mdFiles.length}) does not match number of IDs in yaml (${yamlIdArr.length})!`);
+            return res.status(400).send();
+        }
+
+        if (!registrationRequired) {
+          return res.status(200).send();
+        }
+    });
+  });
+});
+
 // asks for markdown file
 app.get("/:id", function(req, res, next) {
   fs.readFile(`../blog-posts/${req.params.id}`, 'utf8', (err, data) => {
     console.log('returning markdown file: ../blog-posts/', req.params.id);
-    res.type('text/plain').send(data);
+
+    fs.readdir('../blog-posts/', (err, files) => {
+        if (err) {
+            console.error('Error reading directory:', err);
+            return;
+        }
+        console.log('Files in the directory:');
+        files.forEach(file => {
+            console.log(file);
+        });
+    });
+
+    return res.status(200).send();
   });
 });
 

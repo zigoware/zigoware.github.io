@@ -1,0 +1,20 @@
+
+
+Treat the above file as an individual blog post in the /blog-posts/ directory.
+
+Generate the following YAML block and append it to the file /blog-posts/posts.yml
+
+--- <include these dashes>
+id: <generate a unique and short two-to-three-word id for the blog post. Ensure each blog post has its own unique id. If the blog post is very similar in topic to another post, it should have the same id, but with a number appended to the end. The number should increase as posts become more recent.>
+idprev: <insert the id of the blog post that would logically precede this one, using clues such as id, content, and date. You can leave this blank otherwise.>
+date: <insert the current date in MM-DD-YYYY format>
+author: Dzenis Zigo
+title: <generate a title for the blog post>
+description: <generate a description for the blog post (one or two sentences)>
+thumbnail: ./pics/thumbnails/t1.png <do not edit the thumbnail (remove this sentence)>
+tags: ["security"] <do not edit the tags (remove this sentence)>
+timetoread: <estimate the time it would take, in minutes, for someone to read this blog post>
+score: <give this improved blog post a score of 0 to 100 (with 50 being an average blog post). Include factors such as SEO (Search Engine Optimization), usefulness, and how interesting the content and topic is. Base64 Encode this value.>
+--- <include these dashes>
+
+Once the [id] is generated, rename the original file in line 1 to [id].md

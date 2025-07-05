@@ -470,10 +470,37 @@
 	<script>
 		const postId = new URLSearchParams(window.location.search).get('id');
 
-		fetch(`http://localhost:5000/${postId}.md`)
+		const isRunningLocally = window.location.protocol === "file:";
+		if (isRunningLocally) {
+			console.log("The application is running from a local file.");
+		} else {
+			console.log("The application is running from a web server.");
+		}
+
+		if (isRunningLocally) {
+			fetch('http://localhost:5000/checkForBlogPostConfigUpdate')
+			.then(response => {
+				if (response.status === 201) {
+					console.log("Blog post needs to be registered");
+					alert('New blog post needs to be setup.' + '\n' +
+							'> New Copilot prompt copied to clipboard!' + '\n' +
+							'> > Refresh the page after using the prompt.');
+				} else if (response.status !== 200) {
+					console.error("Error checking blog posts (see below response)");
+					console.error(response);
+				}
+			});
+		}
+
+		var markdownFetch;
+		if (isRunningLocally) {
+			markdownFetch = fetch(`http://localhost:5000/${postId}.md`);
+		} else {
+			markdownFetch = fetch(`/blog-posts/${postId}.md`);
+		}
+		markdownFetch
 			.then(response => response.text())
 			.then(data => {
-				console.log(data);
 				const metaDataBeginIndex = data.indexOf('<!---');
 				const post = data.substring(0, metaDataBeginIndex);
 				const postMetaDataString = data.substring(metaDataBeginIndex + 5, data.indexOf('-->', metaDataBeginIndex));
@@ -544,40 +571,40 @@
 					element.classList.remove('mt-16'); // prob not needed
 				});
 
-				const codeBlocks = postContent.querySelectorAll('code');
-				var noAiSuggestions = true;
-				codeBlocks.forEach(block => {
-						//block.classList.add('nohighlight');
-					if (block.textContent.substring(0,2) == '!?') {
-						// block is an ai suggestion
-						noAiSuggestions = false;
-						const newAiSuggestion = document.createElement('a');
-						//newAiSuggestion.style.fontWeight = 'bold';
-						newAiSuggestion.id = crypto.randomUUID();
-						newAiSuggestion.style.backgroundColor = 'beige';
-						newAiSuggestion.style.color = 'black';
-						newAiSuggestion.style.fontSize = 'var(--f-fs-font-fs16)';
-						newAiSuggestion.style.outline = '1px solid black';
-						newAiSuggestion.style.padding = '4px';
-						newAiSuggestion.style.margin = '4px';
-						//newAiSuggestion.style.lineHeight = 'var(--f-fs-font-fs42)';
-						newAiSuggestion.textContent = block.textContent.substring(2);
-						const escapedText = newAiSuggestion.textContent.replace(/'/g, "\\'").replace(/"/g, '\\"'); // escape single and double quotes
-						newAiSuggestion.href = `javascript:removeSuggestion(\'${postMetaData.id}\', \'${escapedText}\', \'${newAiSuggestion.id}\');`;
+				if (isRunningLocally) {
+					const codeBlocks = postContent.querySelectorAll('code');
+					var noAiSuggestions = true;
+					codeBlocks.forEach(block => {
+							//block.classList.add('nohighlight');
+						if (block.textContent.substring(0,2) == '!?') {
+							// block is an ai suggestion
+							noAiSuggestions = false;
+							const newAiSuggestion = document.createElement('a');
+							//newAiSuggestion.style.fontWeight = 'bold';
+							newAiSuggestion.id = crypto.randomUUID();
+							newAiSuggestion.style.backgroundColor = 'beige';
+							newAiSuggestion.style.color = 'black';
+							newAiSuggestion.style.fontSize = 'var(--f-fs-font-fs16)';
+							newAiSuggestion.style.outline = '1px solid black';
+							newAiSuggestion.style.padding = '4px';
+							newAiSuggestion.style.margin = '4px';
+							//newAiSuggestion.style.lineHeight = 'var(--f-fs-font-fs42)';
+							newAiSuggestion.textContent = block.textContent.substring(2);
+							const escapedText = newAiSuggestion.textContent.replace(/'/g, "\\'").replace(/"/g, '\\"'); // escape single and double quotes
+							newAiSuggestion.href = `javascript:removeSuggestion(\'${postMetaData.id}\', \'${escapedText}\', \'${newAiSuggestion.id}\');`;
 
-						block.after(newAiSuggestion);
-						block.remove();
-
-						
+							block.after(newAiSuggestion);
+							block.remove();
+						}
+					});
+					if (noAiSuggestions) {
+						fetch(`http://localhost:5000/noSuggestionsPresent/${postMetaData.id}`)
+						.then(response => {
+							alert('Zero AI suggestions left for this post.' + '\n' +
+							'> New Copilot prompt copied to clipboard!' + '\n' +
+							'> > Refresh the page after using the prompt.');
+						})
 					}
-				});
-				if (noAiSuggestions) {
-					fetch(`http://localhost:5000/noSuggestionsPresent/${postMetaData.id}`)
-					.then(response => {
-						alert('Zero AI suggestions left for this post.' + '\n' +
-						'> New Copilot prompt copied to clipboard!' + '\n' +
-						'> > Refresh the page after using the prompt.');
-					})
 				}
 			}
 
