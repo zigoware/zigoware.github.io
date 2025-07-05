@@ -473,6 +473,7 @@
 		fetch(`http://localhost:5000/${postId}.md`)
 			.then(response => response.text())
 			.then(data => {
+				console.log(data);
 				const metaDataBeginIndex = data.indexOf('<!---');
 				const post = data.substring(0, metaDataBeginIndex);
 				const postMetaDataString = data.substring(metaDataBeginIndex + 5, data.indexOf('-->', metaDataBeginIndex));
@@ -543,17 +544,79 @@
 					element.classList.remove('mt-16'); // prob not needed
 				});
 
-				const inlineCodeBlocks = postContent.querySelectorAll('code');
-				inlineCodeBlocks.forEach(block => {
-					console.log(block);
-						block.classList.add('nohighlight');
-						console.log(block.textContent.substring(0,1));
+				const codeBlocks = postContent.querySelectorAll('code');
+				var noAiSuggestions = true;
+				codeBlocks.forEach(block => {
+						//block.classList.add('nohighlight');
 					if (block.textContent.substring(0,2) == '!?') {
-						block.textContent = block.textContent.substring(2);
-						block.style.fontWeight = 'bold';
-						block.style.backgroundColor = 'yellow';
-						block.style.color = 'red';
+						// block is an ai suggestion
+						noAiSuggestions = false;
+						const newAiSuggestion = document.createElement('a');
+						//newAiSuggestion.style.fontWeight = 'bold';
+						newAiSuggestion.id = crypto.randomUUID();
+						newAiSuggestion.style.backgroundColor = 'beige';
+						newAiSuggestion.style.color = 'black';
+						newAiSuggestion.style.fontSize = 'var(--f-fs-font-fs16)';
+						newAiSuggestion.style.outline = '1px solid black';
+						newAiSuggestion.style.padding = '4px';
+						newAiSuggestion.style.margin = '4px';
+						//newAiSuggestion.style.lineHeight = 'var(--f-fs-font-fs42)';
+						newAiSuggestion.textContent = block.textContent.substring(2);
+						const escapedText = newAiSuggestion.textContent.replace(/'/g, "\\'").replace(/"/g, '\\"'); // escape single and double quotes
+						newAiSuggestion.href = `javascript:removeSuggestion(\'${postMetaData.id}\', \'${escapedText}\', \'${newAiSuggestion.id}\');`;
+
+						block.after(newAiSuggestion);
+						block.remove();
+
+						
 					}
+				});
+				if (noAiSuggestions) {
+					fetch(`http://localhost:5000/noSuggestionsPresent/${postMetaData.id}`)
+					.then(response => {
+						alert('Zero AI suggestions left for this post.' + '\n' +
+						'> New Copilot prompt copied to clipboard!' + '\n' +
+						'> > Refresh the page after using the prompt.');
+					})
+				}
+			}
+
+			// called from the ai suggestion href
+			function removeSuggestion(postId, suggestionText, domElementId) {
+				console.log("fetch post: " + postId + " suggestion: " + suggestionText);
+				fetch(`http://localhost:5000/removeSuggestion`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						id: postId, //not consistent with ".md" or no ".md" at the end
+						suggestionText: suggestionText
+					})
+				}).then(response => {
+					const result = { 
+						postId: postId, 
+						suggestionText: suggestionText, 
+						status: response.status };
+					console.log(result);
+
+					document.getElementById(domElementId).remove();
+					// The markdown has zero ai suggestions left
+					if (response.status === 201) {
+						//alert('Zero AI suggestions left for this post.' + '\n' +
+						//'> New Copilot prompt copied to clipboard!' + '\n' +
+						//'> > Refresh the page after using the prompt.');
+
+						//window.location.reload();
+					}
+					else {
+						//window.location.reload();
+					}
+					//alert('Prompt copied to clipboard! Please input into Copilot.');
+					//navigator.clipboard.writeText('text copied!')
+					//.then(() => {
+					//	alert('Suggestion removed and copied to clipboard');
+					//})
 				});
 			}
 

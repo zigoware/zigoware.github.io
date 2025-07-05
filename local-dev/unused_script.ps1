@@ -1,3 +1,7 @@
+echo "Returning (file not use anymore"
+return
+echo "error"
+
 # Get-ChildItem -Path ".\" -File | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 
 #$a = git diff --name-only # https://www.google.com/search?q=powershell+list+of+git+modified

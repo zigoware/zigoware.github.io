@@ -1,0 +1,8 @@
+
+
+Scan the above file for suggestions in the format `!?<place suggestion/comment here>` and store the number as [x].
+For the above file, generate a maximum of [timetoread]-[x] (timetoread is located at the bottom of the file) suggestions for improving the blog post.
+Do not generate a suggestion if it is not necessary. If the blog post is already very well written, you might not generate any suggestions. Only create suggestions for glaring issues
+Two-thirds of the suggestions should be related to improvements in language, wording, and phrasing - make the author a better writer.
+Follow the format `!?<place suggestion/comment here>` (please include the back ticks '`').
+Place the suggestion near the area in question.

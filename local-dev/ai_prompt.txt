@@ -1,24 +1,26 @@
-
+This file is out of date. Do not use this prompt yet.
 
 Treat the above files as individual blog posts in the /blog-posts directory. 
 
-For each file, improve the blog post.
+For each file, first check if there are suggestions already in [id].md, and if there are, then stop this prompt.
 
-The audience of the blog post is fellow IT professionals, so it's important to maintain technical accuracy, consiseness, and professionality.
+For each file, create approximately [timetoread]x1.5 many suggestions to improve the blog post, and place these suggestions near the area in question and in the following format: `!?<place suggestion/comment here>` (please include the back ticks '`')
 
-Move the results into the /blog-posts/improved directory, while also changing the file name to [id].md (where [id] is the id generated in the YAML).
+Two-thirds of the suggestions should be related to improvements in language, wording, and phrasing - make the author a better writer.
+
+Move the blog post with suggestions into the /blog-posts/improved directory, while also changing the file name to [id].md (where [id] is the id generated in the YAML).
 
 Generate a block of YAML for each blog post according to the following schematic:
 
 ---
-orig: <insert the original blog post file name here> (for reference only)
+orig: <insert the original blog post file name here. Each [orig] should correspond to one [id].>
 id: <generate a unique and short two-to-three-word id for the blog post. Ensure each blog post has its own unique id. If the blog post is very similar in topic to another post, it should have the same id, but with a number appended to the end. The number should increase as posts become more recent.>
 idprev: <insert the id of the blog post that would logically precede this one, using clues such as id, content, and date. You can leave this blank otherwise.>
 date: <insert the current date in MM-DD-YYYY format>
 author: Dzenis Zigo
 title: <generate a title for the blog post>
 description: <generate a description for the blog post (one or two sentences)>
-thumbnail: /pics/thumbnails/t1.png
+thumbnail: /pics/thumbnails/t1.png <do not edit the thumbnail (remove this sentence)>
 tags: ["security"] <do not edit the tags (remove this sentence)>
 timetoread: <estimate the time it would take, in minutes, for someone to read this blog post>
 score: <give this improved blog post a score of 0 to 100 (with 50 being an average blog post). Include factors such as SEO (Search Engine Optimization), usefulness, and how interesting the content and topic is. Base64 Encode this value.>
@@ -26,7 +28,7 @@ score: <give this improved blog post a score of 0 to 100 (with 50 being an avera
 
 Add this resulting YAML to the file /blog-posts/improved/yaml/posts.yml 
 
-Ensure that each blog post in the /blog-posts/improved directory has its own YAML block in the posts.yml file.
+Ensure that each blog post with suggestions in the /blog-posts/improved directory has its own YAML block in the posts.yml file.
 
 If a YAML block already exists for a blog post, make minimal changes to the existing YAML block.
 
