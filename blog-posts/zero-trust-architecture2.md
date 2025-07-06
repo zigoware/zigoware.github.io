@@ -146,7 +146,7 @@ Successful Zero Trust implementation requires strategic planning, executive supp
 
 Remember: Zero Trust is not a destination but a continuous journey of security maturation that adapts to evolving threat landscapes and business requirements.
 
-<!---
+<!--- 
 orig: zero-trust-architecture.md
 id: zero-trust-architecture
 idprev: ransomware-backup-defense
