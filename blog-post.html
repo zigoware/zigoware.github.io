@@ -60,6 +60,9 @@
 			});
 		});
 	</script>
+
+	<!--=====Common JS=======-->
+	<script src="shared.js"></script>
 </head>
 
 <body>
@@ -493,22 +496,40 @@
 		}
 
 		var markdownFetch;
+		var yamlFetch;
 		if (isRunningLocally) {
 			markdownFetch = fetch(`http://localhost:5000/${postId}.md`);
+			yamlFetch = fetch(`http://localhost:5000/posts.yml`);
 		} else {
 			markdownFetch = fetch(`/blog-posts/${postId}.md`);
+			yamlFetch = fetch(`/blog-posts/posts.yml`);
 		}
+
+		yamlFetch
+			.then(response => response.text())
+			.then(data => {
+				//const metaDataBeginIndex = data.indexOf('<!---');
+				//const post = data.substring(0, metaDataBeginIndex);
+				//const postMetaDataString = data.substring(metaDataBeginIndex + 5, data.indexOf('-->', metaDataBeginIndex));
+				const posts = parseYAML(data);
+				const yaml = posts.filter(x => x.id === postId)[0];
+				populatePageFromYaml(yaml)
+			})
+			.catch(error => console.error('Error fetching yaml:', error));
+
+
 		markdownFetch
 			.then(response => response.text())
 			.then(data => {
-				const metaDataBeginIndex = data.indexOf('<!---');
-				const post = data.substring(0, metaDataBeginIndex);
-				const postMetaDataString = data.substring(metaDataBeginIndex + 5, data.indexOf('-->', metaDataBeginIndex));
-				const postMetaData = parseYAML(postMetaDataString);
-				populatePage(post, postMetaData)
+				//const metaDataBeginIndex = data.indexOf('<!---');
+				//const post = data.substring(0, metaDataBeginIndex);
+				//const postMetaDataString = data.substring(metaDataBeginIndex + 5, data.indexOf('-->', metaDataBeginIndex));
+				//const postMetaData = parseYAML(postMetaDataString);
+				populatePageFromMarkdown(data);
 			})
 			.catch(error => console.error('Error fetching blog post:', error));
 
+			/*
 			function parseYAML(postMetaDataString) {
 				// Simple YAML parser (for demonstration purposes)
 				const lines = postMetaDataString.split('\n');
@@ -527,27 +548,30 @@
 
 				return yaml;
 			}
-	
-			function populatePage(post, postMetaData) {
-				const categoryName = convertTagsToCategoryName(postMetaData.tags);
+			*/
+
+			function populatePageFromYaml(yaml) {
+				const categoryName = convertTagsToCategoryName(yaml.tags);
 				document.getElementById("category-name").textContent = categoryName;
 
-				const idAsReadableName = convertIdToReadableName(postMetaData.id);
+				const idAsReadableName = convertIdToReadableName(yaml.id);
 				document.getElementById("post-id-name").textContent = idAsReadableName;
-
-				if (postMetaData.author == "Dzenis Zigo")
+				
+				if (yaml.author == "Dzenis Zigo")
 					document.getElementById("author-thumbnail").src = "./pics/p1.jpg";
 
-				document.getElementById("author").textContent = postMetaData.author;
-				document.getElementById("date").innerText = dayjs(postMetaData.date).format('MMM DD, YYYY');
-				document.getElementById("timetoread").textContent = postMetaData.timetoread + " min read";
-			
-				document.getElementById("title").textContent = postMetaData.title;
-				document.getElementById("description").textContent = postMetaData.description;
+				document.getElementById("author").textContent = yaml.author;
+				document.getElementById("date").innerText = dayjs(yaml.date).format('MMM DD, YYYY');
+				document.getElementById("timetoread").textContent = yaml.timetoread + " min read";
 
+				document.getElementById("title").textContent = yaml.title;
+				document.getElementById("description").textContent = yaml.description;
+			}
+	
+			function populatePageFromMarkdown(data) {
 				const md = window.markdownit({
-					html: true,
-					breaks: true,
+					html: true, //??
+					breaks: true, //??
 					/*
 					highlight: function (str, lang) {
 						if (lang && hljs.getLanguage(lang)) {
@@ -560,7 +584,7 @@
 					}
 					*/
 				});
-				const renderedContent = md.render(post);
+				const renderedContent = md.render(data);
 				var postContent = document.getElementById("post-content");
 				postContent.innerHTML = renderedContent;
 
@@ -591,14 +615,14 @@
 							//newAiSuggestion.style.lineHeight = 'var(--f-fs-font-fs42)';
 							newAiSuggestion.textContent = block.textContent.substring(2);
 							const escapedText = newAiSuggestion.textContent.replace(/'/g, "\\'").replace(/"/g, '\\"'); // escape single and double quotes
-							newAiSuggestion.href = `javascript:removeSuggestion(\'${postMetaData.id}\', \'${escapedText}\', \'${newAiSuggestion.id}\');`;
+							newAiSuggestion.href = `javascript:removeSuggestion(\'${postId}\', \'${escapedText}\', \'${newAiSuggestion.id}\');`;
 
 							block.after(newAiSuggestion);
 							block.remove();
 						}
 					});
 					if (noAiSuggestions) {
-						fetch(`http://localhost:5000/noSuggestionsPresent/${postMetaData.id}`)
+						fetch(`http://localhost:5000/noSuggestionsPresent/${postId}`)
 						.then(response => {
 							alert('Zero AI suggestions left for this post.' + '\n' +
 							'> New Copilot prompt copied to clipboard!' + '\n' +
@@ -610,7 +634,7 @@
 
 			// called from the ai suggestion href
 			function removeSuggestion(postId, suggestionText, domElementId) {
-				console.log("fetch post: " + postId + " suggestion: " + suggestionText);
+				console.log("Removing suggestion - see below");
 				fetch(`http://localhost:5000/removeSuggestion`, {
 					method: 'POST',
 					headers: {

@@ -32,10 +32,8 @@ function loadRegistrationPrompt(filename, res) {
 
 app.get("/checkForBlogPostConfigUpdate", (req, res, next) => {
   var configUpdateRequired = false;
-  console.log('checking for blog post config update');
 
   fs.readFile('../blog-posts/posts.yml', 'utf8', (err, yamlFile) => {
-    console.log('examining file: ../blog-posts/posts.yml');
 
     const yamlLines = yamlFile.split('\n');
     let yamlIdArr = [];
@@ -43,7 +41,6 @@ app.get("/checkForBlogPostConfigUpdate", (req, res, next) => {
       // Skip empty lines
       if (line.trim() !== '') {
         const [key, ...value] = line.split(':');
-        console.log(`Key: ${key}, Value: ${value}`);
         if (key.trim() === 'id') {
           yamlIdArr.push(value.toString().trim()); //unknown what trim does
         }
@@ -57,12 +54,9 @@ app.get("/checkForBlogPostConfigUpdate", (req, res, next) => {
             return res.status(400).send();
         }
 
-        console.log('Files in the directory:');
         var mdFiles = files.filter(file => file.endsWith('.md'));
-        console.log(`Found ${mdFiles.length} markdown files.`);
         mdFiles.forEach(mdFile => {
             //if (file.endsWith('.md')) {
-              console.log(`Found markdown file: ${mdFile}`);
               const id = mdFile.replace('.md', '');
             
               if (yamlIdArr.includes(id) == false) {
@@ -71,7 +65,6 @@ app.get("/checkForBlogPostConfigUpdate", (req, res, next) => {
                   return loadRegistrationPrompt(mdFile, res);
               }
             //}
-            console.log(mdFile);
         });
 
         if (mdFiles.length !== yamlIdArr.length && !registrationRequired) {
@@ -89,20 +82,21 @@ app.get("/checkForBlogPostConfigUpdate", (req, res, next) => {
 // asks for markdown file
 app.get("/:id", function(req, res, next) {
   fs.readFile(`../blog-posts/${req.params.id}`, 'utf8', (err, data) => {
-    console.log('returning markdown file: ../blog-posts/', req.params.id);
+    console.log('returning file: ../blog-posts/', req.params.id);
 
+    /*
     fs.readdir('../blog-posts/', (err, files) => {
         if (err) {
             console.error('Error reading directory:', err);
             return;
         }
-        console.log('Files in the directory:');
         files.forEach(file => {
             console.log(file);
         });
     });
+    */
 
-    return res.status(200).send();
+    return res.type('text/plain').send(data);
   });
 });
 

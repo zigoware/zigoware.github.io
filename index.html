@@ -28,6 +28,8 @@
 	<!-- DAYJS -->
 	<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 
+	<!--=====Common JS=======-->
+	<script src="shared.js"></script>
 </head>
 
 <body>
@@ -559,7 +561,7 @@
 									});
 								}
 
-								const posts = [];
+								var posts = [];
 
 								var yamlFetch;
 								if (isRunningLocally) {
@@ -572,40 +574,11 @@
 								yamlFetch
 									.then(response => response.text())
 									.then(data => {
-										const posts = parseYAML(data);
+										posts = parseYAML(data);
 										populatePostCards();
 										populateRecentPosts();
 									})
 									.catch(error => console.error('Error fetching blog posts:', error));
-
-								function parseYAML(yamlString) {
-									// Simple YAML parser (for demonstration purposes)
-									const lines = yamlString.split('\n');
-									
-									let currentPost = {};
-
-									let skipGap = false;
-									lines.forEach(line => {
-										if (skipGap) {
-											skipGap = false;
-											return;
-										}
-										if (line.trim() === '---') {
-											if (Object.keys(currentPost).length > 0) {
-												currentPost.tags = JSON.parse(currentPost.tags);
-												
-												posts.push(currentPost);
-												currentPost = {};
-												skipGap = true; // Skip the next line
-											}
-										} else {
-											const [key, ...value] = line.split(':');
-											currentPost[key.trim()] = value.join(':').trim();
-										}
-									});
-
-									return posts;
-								}
 
 								function sortPostsByDate() {
 									let newPostsCopy = [...posts];
