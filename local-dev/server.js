@@ -19,15 +19,14 @@ app.get("/posts.yml", function(req, res, next) {
   
 });
 
-function loadRegistrationPromptInClipboard(filename, res) {
-  fs.readFile('./ai_prompt_registerblogpost.txt', 'utf8', (err, prompt) => {
-      //copy the prompt to the clipboard
-      prompt = `${filename}` + prompt;
-      require('child_process').spawn('clip').stdin.end(prompt);
-      console.log(`Registration prompt for ${filename} copied to clipboard!`);
-      
-      return 201;
-  });
+function loadRegistrationPromptInClipboard(filename) {
+  let prompt = fs.readFileSync('./ai_prompt_registerblogpost.txt', 'utf8');
+  //copy the prompt to the clipboard
+  prompt = `${filename}` + prompt;
+  require('child_process').spawn('clip').stdin.end(prompt);
+  console.log(`Registration prompt for ${filename} copied to clipboard!`);
+  
+  return 201;
 }
 
 app.get("/checkForBlogPostConfigUpdate", (req, res, next) => {
@@ -141,9 +140,6 @@ app.get("/checkForBlogPostConfigUpdate", (req, res, next) => {
 
       if (!registrationRequired) {
         returnStatusCode = 200;
-      }
-      else {
-        returnStatusCode = 400; // not sure what situation this is for
       }
 
       yamlFileSaved.then(() => {

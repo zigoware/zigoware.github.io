@@ -5,7 +5,7 @@ Treat the above file as an individual blog post in the /blog-posts/ directory.
 Generate the following YAML block and append it to the file /blog-posts/posts.yml
 
 --- <include these dashes>
-id: <generate a unique and short two-to-three-word id for the blog post. Ensure each blog post has its own unique id. If the blog post is very similar in topic to another post, it should have the same id, but with a number appended to the end. The number should increase as posts become more recent.>
+id: <generate a unique and short two-to-three-word id for the blog post. Ensure each blog post has its own unique id. If the blog post is very similar in topic to another post, it should have the same id, but with a number appended to the end after a hyphen (-). The number should increase as posts become more recent.>
 idprev: <insert the id of the blog post that would logically precede this one, using clues such as id, content, and date. You can leave this blank otherwise.>
 date: <insert the current date in MM-DD-YYYY format>
 author: Dzenis Zigo
