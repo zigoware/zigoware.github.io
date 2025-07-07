@@ -500,6 +500,9 @@
 					}
 				});
 			}
+			else {
+				resolve(false); // no need to check for updates when running on a web server
+			}
 		});
 
 		var markdownFetch;
