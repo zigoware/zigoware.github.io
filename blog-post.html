@@ -1035,8 +1035,15 @@
 			font-size: 1.25rem !important;
 		}
 
-		/* Change text (not headers and not code blocks) */
+		/* Change text (not headers and not code blocks) 
 		#post-content *:not(pre *, h1, h2, h3, h4, h5, h6) {
+			color: #6B7280;
+			line-height: var(--f-fs-font-fs26);
+		}
+		*/
+		#post-content p,
+		#post-content li,
+		#post-content blockquote {
 			color: #6B7280;
 			line-height: var(--f-fs-font-fs26);
 		}
