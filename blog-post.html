@@ -44,13 +44,15 @@
 	-->
 
 	<script>
+		// event for highlight.js to run after markdown is loaded
+		const myCustomEvent = new CustomEvent('markdownLoaded');
 		// Loading highlight.js dynamically
 		const script = document.createElement('script');
 		script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js';
 		document.head.appendChild(script); 
 		script.addEventListener('load', () => {
-			document.addEventListener('DOMContentLoaded', function() {
-				console.log('DOMContentLoaded B');
+			window.addEventListener('markdownLoaded', function() {
+				console.log('markdownLoaded event triggered!');
 				// Highlight code blocks
 				hljs.highlightAll();
 			});
@@ -676,6 +678,9 @@
 						});
 					}
 				}
+
+				// trigger the custom event for highlight.js to run
+				window.dispatchEvent(myCustomEvent);
 			}
 
 			// called from the ai suggestion href
