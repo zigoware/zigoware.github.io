@@ -603,7 +603,16 @@
 					element.classList.remove('mt-16'); // prob not needed
 				});
 
-				if (isRunningLocally) {
+				if (!isRunningLocally) {
+					// remove ai suggestions
+					const codeBlocks = postContent.querySelectorAll('code');
+					codeBlocks.forEach(block => {
+						if (block.textContent.substring(0,2) == '!?') {
+							block.remove();
+						}
+					});
+				}
+				else if (isRunningLocally) {
 					const codeBlocks = postContent.querySelectorAll('code');
 					var noAiSuggestions = true;
 					codeBlocks.forEach(block => {
