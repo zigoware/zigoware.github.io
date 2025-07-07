@@ -33,18 +33,36 @@
 		import markdownit from 'markdown-it';
 	</script>
 
+>	<!-- HIGHLIGHT.JS -->
 	<!-- obsidian and androidstudio -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/agate.min.css">
+	<!--
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-
-	<!-- and it's easy to individually load additional languages -->
+	-->
+	<!-- and it's easy to individually load additional languages 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/js.min.js"></script>
+	-->
 
 	<script>
-		// Add language labels to code blocks
+		// Loading highlight.js dynamically
+		const script = document.createElement('script');
+		script.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js';
+		document.head.appendChild(script); 
+		script.addEventListener('load', () => {
+			document.addEventListener('DOMContentLoaded', function() {
+				console.log('DOMContentLoaded B');
+				// Highlight code blocks
+				hljs.highlightAll();
+			});
+			console.log('Highlight.js Script loaded successfully!');
+		});
+		script.addEventListener('error', () => {
+			console.error('Error loading Highlight.js script!');
+		});
+
+		// Add language labels to code blocks in top-right corner
 		document.addEventListener('DOMContentLoaded', function() {
-			// Initialize highlight.js
-			hljs.highlightAll();
+			console.log('DOMContentLoaded A');
 			
 			// Add language labels after highlighting
 			document.querySelectorAll('pre code').forEach(function(block) {
