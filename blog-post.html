@@ -41,11 +41,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/js.min.js"></script>
 
 	<script>
-		// Initialize highlight.js
-		hljs.highlightAll();
-		
 		// Add language labels to code blocks
 		document.addEventListener('DOMContentLoaded', function() {
+			// Initialize highlight.js
+			hljs.highlightAll();
+			
 			// Add language labels after highlighting
 			document.querySelectorAll('pre code').forEach(function(block) {
 				const language = block.className.match(/language-(\w+)/);
