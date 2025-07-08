@@ -59,7 +59,7 @@ orig: endpoint-security-2025.md
 id: endpoint-security-2025
 idprev: security-awareness-training
 date: 07-09-2035
-author: Dzenis Zigo
+author: Allen Davis
 title: Endpoint Security in 2025: Critical Protection for Modern IT Infrastructure
 description: Comprehensive guide to endpoint security strategies, threats, and best practices for protecting modern distributed IT environments.
 thumbnail: ./pics/thumbnails/t1.png
@@ -91,7 +91,7 @@ author: Dzenis Zigo
 title: Ransomware Defense: Building a Bulletproof Backup Strategy
 description: Comprehensive guide to architecting enterprise backup strategies that provide robust defense against ransomware attacks and ensure business continuity.
 thumbnail: ./pics/thumbnails/t1.png
-tags: ["security"]
+tags: ["networking"]
 timetoread: 6
 score: ODc=
 ---
@@ -105,7 +105,7 @@ author: Dzenis Zigo
 title: Zero Trust Architecture: Implementing Next-Generation Security Models
 description: Comprehensive guide to implementing Zero Trust Architecture for modern enterprise environments, covering core principles, implementation strategies, and advanced security components.
 thumbnail: ./pics/thumbnails/t1.png
-tags: ["security"]
+tags: ["tutorial"]
 timetoread: 8
 score: OTI=
 ---

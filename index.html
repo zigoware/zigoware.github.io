@@ -491,33 +491,8 @@
 								</div>
 							</div>
 
-							<!-- Script to fix template: to stop scrolling/animation behavior of blog post cards if entering page from bottom -->
+							
 							<script>
-								const styleToStopScrollingBehavior = "opacity: 1 !important; transform: none !important;";
-
-								try {
-									// === 1 is for reload, 2 is for back navigation
-									const pageAccessedByReload = (
-										(window.performance.navigation && window.performance.navigation.type === 1) ||
-										(window.performance.navigation && window.performance.navigation.type === 2) ||
-										window.performance
-											.getEntriesByType('navigation')
-											.map((nav) => nav.type)
-											.some(value => ['reload', 'back_forward'].includes(value))
-									);
-
-									if (pageAccessedByReload) {
-										//console.info( "This page is reloaded or (back-button was pressed)" );
-										
-										document.getElementById("post-template").style = styleToStopScrollingBehavior;
-									} else {
-										//console.info( "This page is not reloaded" );
-									}
-								} catch (error) {
-									console.error("Error checking page reload!", error);
-
-									document.getElementById("post-template").style = styleToStopScrollingBehavior;
-								}
 								/* Apparently this method below isn't supported
 								if (!window.performance) {
 									console.info("window.performance NOT WORKING on this browser");
@@ -538,112 +513,35 @@
 
 							<!-- Script to download blog post metadata and populate post cards using post-template-->
 							<script>
-								const isRunningLocally = window.location.protocol === "file:";
-								if (isRunningLocally) {
-									console.log("The application is running from a local file.");
-								} else {
-									console.log("The application is running from a web server.");
-								}
+								stopScrollingBehaviorIfRefreshedPage();
+								
+								const isRunningLocally = checkRunningLocally();
 
-								//copy paste below
-								if (isRunningLocally) {
-									fetch('http://localhost:5000/checkForBlogPostConfigUpdate')
-									.then(response => {
-										if (response.status === 201) {
-											console.log("Blog post needs to be registered");
-											alert('New blog post needs to be setup.' + '\n' +
-													'> New Copilot prompt copied to clipboard!' + '\n' +
-													'> > Refresh the page after using the prompt.');
-										} else if (response.status !== 200) {
-											console.error("Error checking blog posts (see below response)");
-											console.error(response);
-										}
-									});
-								}
+								checkForBlogPostRegistrationRequired();
 
 								var posts = [];
+								var filteredPosts = [];
 
-								var yamlFetch;
-								if (isRunningLocally) {
-									// If running locally, fetch from the local file
-									yamlFetch = fetch('http://localhost:5000/posts.yml');
-								} else {
-									// If running on a server, fetch from the server
-									yamlFetch = fetch('/blog-posts/posts.yml');
-								}
+								var yamlFetch = getYamlFetchPromise();
+								
 								yamlFetch
 									.then(response => response.text())
 									.then(data => {
 										posts = parseYAML(data);
+										filteredPosts = posts; // no filtering on this page
+										sortPostsByDate();
 										populatePostCards();
 										populateRecentPosts();
 									})
 									.catch(error => console.error('Error fetching blog posts:', error));
 
-								function sortPostsByDate() {
-									let newPostsCopy = [...posts];
-
-									newPostsCopy.sort((a, b) => {
-										return parseInt(dayjs(b.date).valueOf()) - parseInt(dayjs(a.date).valueOf());
-									});
-
-									return newPostsCopy;
-								}
-
 								function populatePostCards() {
-									let myPosts = sortPostsByDate();
-
 									const postTemplate = document.getElementById("post-template");
 									
 									const container = postTemplate.parentElement;
-
-									var postIndex = 0;
-									myPosts.forEach(post => {
-										const postClone = postTemplate.cloneNode(true);
-
-										// Unhide the cloned card
-										postClone.removeAttribute("hidden");
-										postClone.removeAttribute("id"); // Remove the id to avoid duplicates (might affect SEO)
-
-										// not sure what this is for, but it was in the original code
-										if (postIndex % 2 === 0)
-											postClone.dataset.aosDelay = 0;
-										else
-											postClone.dataset.aosDelay = 100;
-
-										// add bottom margin for cards in second row and below
-										if (postIndex == 1) {
-											postClone.querySelector(".blog1-single-box").classList.add("sm:mt-30");
-										}
-										else if (postIndex >= 2) {
-											postClone.querySelector(".blog1-single-box").classList.add("mt-30");
-										}
-
-										postIndex++;
-
-										postClone.querySelector("#thumbnail").src = post.thumbnail;
-
-										if (post.tags.includes("security"))
-											postClone.querySelector("#category").textContent = "Security";
-										
-										postClone.querySelector("#title").textContent = post.title;
-										postClone.querySelector("#description").textContent = post.description;
-										
-										postClone.querySelector("#author").textContent = post.author;
-										if (post.author == "Dzenis Zigo")
-											postClone.querySelector("#author-thumbnail").src = "./pics/p1.jpg";
-
-										const theDate = dayjs(post.date);
-										postClone.querySelector("#date").textContent = theDate.format("MMM D, YYYY");
-
-										postClone.querySelector("#timetoread").textContent = " " + post.timetoread + " min read";
-
-										postClone.querySelectorAll(".stretched-link").forEach( link => {
-											link.href = "blog-post.html?id=" + post.id;
-										});
-
-										container.appendChild(postClone);
-									});
+									
+									setupCards(postTemplate, container);
+									
 									// Remove the original template
 									postTemplate.remove();
 								}
@@ -1096,13 +994,11 @@
 									return finalStr;
 								}
 								function populateRecentPosts() {
-									let myNewestPosts = sortPostsByDate();
-										
 									const recentPostTemplate = document.getElementById("recent-post-template");
 
 									// Limit to 4 newest posts
 									let index = 0;
-									myNewestPosts.forEach( myPost => {
+									posts.forEach( myPost => {
 										if (index > 3) // Limit to 4 posts
 											return;
 										index++;

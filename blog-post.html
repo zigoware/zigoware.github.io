@@ -470,7 +470,7 @@
 						<div class="page-prog">
 							<a href="index.html">Blog</a>
 							<span><i class="fa-solid fa-angle-right"></i></span>
-							<p id="category-name">Category</p>
+							<a id="category-name">Category</a>
 							<span><i class="fa-solid fa-angle-right"></i></span>
 							<p id="post-id-name" class="bold">Blog Post</p>
 							<style>
@@ -543,7 +543,8 @@
 				//const postMetaDataString = data.substring(metaDataBeginIndex + 5, data.indexOf('-->', metaDataBeginIndex));
 				const posts = parseYAML(data);
 				const yaml = posts.filter(x => x.id === postId)[0];
-				populatePageFromYaml(yaml)
+				populatePageFromYaml(yaml);
+				populateSeriesPosts(posts);
 			})
 			.catch(error => console.error('Error fetching yaml:', error));
 
@@ -581,8 +582,10 @@
 			*/
 
 			function populatePageFromYaml(yaml) {
+				console.log(yaml);
 				const categoryName = convertTagsToCategoryName(yaml.tags);
 				document.getElementById("category-name").textContent = categoryName;
+				document.getElementById("category-name").href = 'categories.html?c=' + categoryName.toLowerCase();
 
 				const idAsReadableName = convertIdToReadableName(yaml.id);
 				document.getElementById("post-id-name").textContent = idAsReadableName;
@@ -591,6 +594,7 @@
 					document.getElementById("author-thumbnail").src = "./pics/p1.jpg";
 
 				document.getElementById("author").textContent = yaml.author;
+				document.getElementById("author").nextElementSibling.href = 'categories.html?author=' + yaml.author.split(' ').join('-').toLowerCase();
 				document.getElementById("date").innerText = dayjs(yaml.date).format('MMM DD, YYYY');
 				document.getElementById("timetoread").textContent = yaml.timetoread + " min read";
 
@@ -736,6 +740,11 @@
 			function convertTagsToCategoryName(tags) {
 				if (tags.includes("security"))
 					return "Security";
+				else if (tags.includes("tutorial"))
+					return "Tutorial";
+				else if (tags.includes("networking"))
+					return "Networking";
+
 			}
 	</script>
 
@@ -751,11 +760,12 @@
 								<div class="heading1">
 									<div style="display: block;" class="social-area">
 										<div style="justify-content: space-around;" class="author-area">
-											<div class="author">
+											<div class="author position-relative">
 												<div class="author-tumb">
 													<img id="author-thumbnail" src="assets/img/blog/blog1-author1.png" alt="vexon" />
 												</div>
-												<span id="author" class="author-text">Kimberly Mastrangelo</span>
+												<a id="author" class="author-text">Kimberly Mastrangelo</a>
+												<a class="stretched-link" href="#"></a>
 											</div>
 											<a id="my-calendar-holder" class="time"><img style="transform: translateY(-2px); width: 18px;" src="assets/img/icons/date1.svg" alt="small calendar icon" />
 												<span id="date">Oct 26, 2035</span> 
@@ -833,92 +843,108 @@
 							
 						</article>
 						<hr>
-						<article>
-							<div class="heading1 mt-30">
-								<p>In today’s digital age, building a strong personal brand on social media is more crucial than ever. A compelling personal brand not only establishes your credibility and trustworthiness but also opens doors to new opportunities, connects you with like-minded individuals, and can even generate income. With billions of users on social media platforms, carving out a unique space for yourself may seem daunting, but with the right strategies, you can create a brand that resonates.</p>
-								<ol>
-									<li class="mt-16">Understanding Your Personal Brand</li>
-									<li class="mt-16">Choosing the Right Platforms</li>
-									<li class="mt-16">Crafting a Consistent Brand Image</li>
-									<li class="mt-16">Creating Valuable Content</li>
-									<li class="mt-16">Leveraging Hashtags and Keywords</li>
-									<li class="mt-16">Engaging with Your Audience</li>
-									<li class="mt-16">Analyzing and Adapting Your Strategy</li>
-								</ol>
-								<style>
-								</style>
-								<h3 class="mt-40">Understanding Your Personal Brand</h3>
-								<p class="mt-16">Your personal brand is a reflection of who you are, what you stand for, and how you want others to perceive you. Before diving into the social media world, take some time to reflect on your values, interests, and goals. Ask yourself: What do I want to be known for? What are my unique strengths and passions? Who is my target audience?</p>
-								<p class="mt-16">Once you have clarity on these questions, you can begin crafting a brand that authentically represents you. Remember, authenticity is key—people connect with genuine voices, so stay true to who you are and avoid the temptation to imitate others.</p>
-							</div>
-						</article>
-
-						<article>
-							<div class="heading1 mt-40">
-								<h3>Choosing the Right Platforms</h3>
-								<p class="mt-16">Different social media platforms serve different purposes, and each has its own user demographics. Selecting the right platforms for your brand is essential. For instance:</p>
-								<p class="mt-16 p-with-sapn"><span>LinkedIn:</span> is ideal for professionals seeking to build a network within their industry.</p>
-								<p class="mt-10 p-with-sapn"><span>Instagram:</span> is highly visual and works well for brands related to lifestyle, fashion, travel, and more.</p>
-								<p class="mt-10 p-with-sapn"><span>Twitter:</span> is great for sharing quick thoughts, opinions, and joining conversations on trending topics.</p>
-								<p class="mt-10 p-with-sapn"><span>TikTok:</span> has a young, highly engaged audience and is excellent for creating entertaining, relatable short videos.</p>
-								<p class="mt-20">Choose platforms that align with your goals and where your target audience is most active. Instead of spreading yourself too thin across all platforms, focus on two or three and consistently deliver quality content.</p>
-							</div>
-						</article>
-
-						<article>
-							<div class="heading1 mt-50">
-								<h3>Crafting a Consistent Brand Image</h3>
-								<p class="mt-16">Your brand image is a combination of your visuals, tone, and messaging. Consistency across your profile photos, color scheme, and typography helps establish a memorable and professional look. Choose profile and cover photos that reflect your personality and niche.</p>
-								<p class="mt-16">Beyond visuals, consider the tone and style of your posts. Are you aiming for a formal, professional voice or a casual, friendly vibe? Having a consistent tone helps your audience feel connected and fosters trust. Remember, consistency is not only about posting frequently but also about aligning your visuals, voice, and message.</p>
-								<div class="row">
-									<div class="col-md-6">
-										<div class="image _relative image-anime mt-40">
-											<img class="w-full" src="assets/img/blog/blog-details-image2.png" alt="vexon" />
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="image _relative image-anime mt-40">
-											<img class="w-full" src="assets/img/blog/blog-details-image3.png" alt="vexon" />
-										</div>
-									</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="image _relative image-anime mt-40">
+									<img class="w-full" src="assets/img/blog/blog-details-image2.png" alt="vexon" />
 								</div>
 							</div>
-						</article>
-
-						<article>
-							<div class="heading1 mt-40">
-								<h3>Creating Valuable Content</h3>
-								<p class="mt-16">Content is the heart of personal branding on social media. To build a loyal audience, your content should educate, inspire, or entertain. Start by creating a content calendar and brainstorming ideas that align with your brand’s message. Here are some types of content to consider:</p>
-								<p class="mt-16 p-with-sapn"><span>Educational Content:</span> Share insights, tips, or tutorials related to your expertise. Position yourself as a thought leader by delivering value.</p>
-								<p class="mt-10 p-with-sapn"><span>Behind-the-Scenes:</span> Give a glimpse into your life or work process. This humanizes your brand and makes you more relatable.</p>
-								<p class="mt-10 p-with-sapn"><span>Storytelling:</span> Use stories to connect emotionally with your audience. Share experiences, challenges, or milestones that have shaped your journey.</p>
-								<p class="mt-10 p-with-sapn"><span>User Engagement:</span> Ask questions, create polls, or invite followers to share their experiences. This not only increases engagement but also strengthens your community.</p>
-								<p class="mt-20">Plan a mix of these content types to keep your feed dynamic and engaging, and always remember to provide value.</p>
+							<div class="col-md-6">
+								<div class="image _relative image-anime mt-40">
+									<img class="w-full" src="assets/img/blog/blog-details-image3.png" alt="vexon" />
+								</div>
 							</div>
-						</article>
-
-						<article>
-							<div class="heading1 mt-50">
-								<h3>Leveraging Hashtags and Keywords</h3>
-								<p class="mt-16">Hashtags and keywords can dramatically improve the visibility of your content. Research popular and relevant hashtags in your niche and incorporate them into your posts. On platforms like Instagram and LinkedIn, hashtags help your content reach users who don’t follow you yet. However, avoid overloading your posts with too many hashtags—5-10 carefully selected ones are usually enough.</p>
-								<p class="mt-20">Using keywords effectively in your profile and posts can also enhance discoverability, especially on platforms with search functions like LinkedIn and Twitter. Think of words and phrases your audience might use to find information in your niche, and strategically incorporate them into your bio, captions, and content.</p>
-
-								<h3 class="mt-40">Staying Authentic and True to Your Brand</h3>
-								<p class="mt-16">Finally, one of the most important aspects of personal branding is authenticity. Your audience can tell when you’re genuine and when you’re not, and they’re more likely to engage with a brand that feels real. Be transparent about your journey, share your wins and losses, and let your true personality shine through. Authenticity fosters trust, which is the foundation of any strong brand.</p>
-								<p class="mt-16">As you grow, you may face pressure to conform to trends or present a certain image. Resist the urge to compromise on your values or misrepresent yourself. A strong personal brand is built on honesty, consistency, and the courage to be yourself.</p>
-							</div>
-						</article>
-
-						<div class="clint-review">
-							<p>"Your personal brand is the unique story that only you can tell. Own it, share it, and let it shine."</p>
-							<span>Henry Fawyel</span>
 						</div>
 
 						<div class="comments-area">
-							<div class="heading1 mt-40">
-								<h3>Blog Comments (2)</h3>
-							</div>
+							<div style="margin-bottom: 40px;" class="sidebar-widget_1 _recent-posts mt-40">
+								<h3>Newest Posts</h3>
 
+								<div id="recent-post-template" hidden style="align-items: start;" class="position-relative blog1-recent-box">
+									<div class="">
+										<div class="recent-thumb">
+											<img id="thumbnail" style="object-fit: cover; height: 82px; border-radius: 15%; margin-top: 4px;" src="assets/img/blog/blog1-recent1.png" alt="generic thumbnail image" />
+										</div>
+									</div>
+									<div class="heading">
+										<a class="date"><img src="assets/img/icons/date1.svg" alt="small calendar icon"/> 
+											<span id="date">
+												Oct 31, 2035
+											</span>
+										</a>
+										<h5><a id="title" href="blog-single.html">
+											The Power of Storytelling: How Make Your Brand’s
+											Voice...
+										</a></h5>
+									</div>
+									<a class="stretched-link" href="#"></a>
+								</div>
+
+								<script>
+									function cutOffStringAtMaxCharacters(str, maxChars) {
+										let arr = str.split(" ");
+										let finalStr = "";
+										let firstWord = true;
+										
+										for (const word of arr) {
+											if (firstWord) {
+												finalStr = word;
+												firstWord = false;
+											}
+											else {
+												let newStr = finalStr + " " + word;
+
+												if (newStr.length <= maxChars) {
+													finalStr = newStr; // Add the word if it doesn't exceed the limit
+												} else {
+													finalStr = finalStr + "...";
+													//console.log("Exceeds limit, stopping at: " + finalStr);
+													break; // Return the string with ellipsis if it exceeds the limit
+												}
+											}
+										};
+
+										return finalStr;
+									}
+									function populateSeriesPosts(posts) {
+										const prevPost = posts[0];
+										const nextPost = posts[1];
+											
+										const recentPostTemplate = document.getElementById("recent-post-template");
+
+										// Limit to 2 posts
+										var myPost;
+										for (let i = 0; i < 2; i++) {
+											if (i == 0) {
+												myPost = prevPost;
+											} else {
+												myPost = nextPost;
+											}
+
+											const recentPostClone = recentPostTemplate.cloneNode(true);
+
+											if (i >= 1)
+												recentPostClone.classList.add("mt-16"); // Add margin for all but the first post
+											// Unhide the cloned card
+											recentPostClone.removeAttribute("hidden"); 
+											recentPostClone.removeAttribute("id"); // Remove the id to avoid duplicates (might affect SEO)
+
+											recentPostClone.querySelector("#thumbnail").src = myPost.thumbnail;
+											recentPostClone.querySelector("#date").textContent = dayjs(myPost.date).format("MMM D, YYYY");
+											
+											//let newTitle = cutOffStringAtMaxCharacters(myPost.title, 55)
+											let newTitle = myPost.title;
+											recentPostClone.querySelector("#title").textContent = newTitle;
+
+											recentPostClone.querySelector(".stretched-link").href = "blog-post.html?id=" + myPost.id; // Set the link to the blog single page
+
+											recentPostTemplate.parentElement.appendChild(recentPostClone);
+										};
+										// Remove the original template
+										recentPostTemplate.remove(); 
+									}
+								</script>
+							</div>
 							<div class="tags-social-area">
 								<div class="row align-items-center">
 									<div class="col-md-6">
@@ -951,43 +977,68 @@
 							</div>
 
 							<div class="space30"></div>
+							<h3>2 Comments</h3>
 							<div class="comment-box">
-								<div class="top-area">
-									<div class="author-area">
-										<div class="image">
-											<img src="assets/img/blog/comment-author1.png" alt="vexon" />
-										</div>
-										<div class="heading1 ml-20">
-											<h4><a href="#">Mr. Ana Ritchie</a></h4>
-											<p class="mt-2">8/1/2024</p>
-										</div>
-									</div>
-									<a href="#" class="reply-btn"><i class="fa-solid fa-reply"></i> Reply</a>
-								</div>
-
 								<div class="heading1 mt-20">
-									<p>“This article is exactly what I needed! I've been trying to build my personal brand for a while but was getting stuck. The tips on content creation and engagement are super helpful—thanks for sharing!"</p>
+									<div class="my-top-part">
+										<span class="my-name">
+											Matthew Kuhnemann
+										</span>
+										<span class="my-date">
+											December 19, 2035
+										</span>
+									</div>
+									<p class="my-comment-text">
+										I love how this breaks down the importance of consistency and authenticity. It's easy to get caught up in trends, but staying true to yourself really is key. Great read!
+									</p>
 								</div>
 							</div>
-
-							<div class="comment-box ml-60">
-								<div class="top-area">
-									<div class="author-area">
-										<div class="image">
-											<img src="assets/img/blog/comment-author2.png" alt="vexon" />
-										</div>
-										<div class="heading1 ml-20">
-											<h4><a href="#">Matthew Kuhnemann</a></h4>
-											<p class="mt-2">8/2/2024</p>
-										</div>
-									</div>
-									<a href="#" class="reply-btn"><i class="fa-solid fa-reply"></i> Reply</a>
-								</div>
-
+							<div class="comment-box">
 								<div class="heading1 mt-20">
-									<p>“I love how this breaks down the importance of consistency and authenticity. It's easy to get caught up in trends, but staying true to yourself really is key. Great read!"</p>
+									<div class="my-top-part">
+										<span class="my-name">
+											Matthew Kuhnemann
+										</span>
+										<span class="my-date">
+											December 19, 2035
+										</span>
+									</div>
+									<p class="my-comment-text">
+										I love how this breaks down the importance of consistency and authenticity. It's easy to get caught up in trends, but staying true to yourself really is key. Great read!
+									</p>
 								</div>
 							</div>
+							<style>
+								.comment-box {
+									border: 1px solid lightblue;
+									border-left-width: 6px;
+									border-right-width: 6px;
+									padding: 12px !important;
+									/*margin-top: 10px !important;*/
+								}
+								.comment-box .heading1 {
+									margin: 0px;
+								}
+								.comment-box .my-top-part {
+									display: flex;
+									justify-content: space-between;
+									margin-bottom: 8px;
+								}
+								.comment-box .my-top-part .my-name {
+									font-weight: bold;
+									color: #070A1D;
+									margin-right: 4px;
+								}
+								.comment-box .my-top-part .my-date {
+									margin-left: 4px;
+								}
+								.comment-box .my-comment-text {
+									color: var(--vtc-text-gray1);
+								}
+								.details-contact-area {
+									margin-top: 30px !important;
+								}
+							</style>
 						</div>
 
 						<div class="details-contact-area">
@@ -1000,12 +1051,7 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="single-input">
-											<input type="text" placeholder="First Name" />
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="single-input">
-											<input type="text" placeholder="Last Name" />
+											<input type="text" placeholder="Name" />
 										</div>
 									</div>
 									<div class="col-md-6">
@@ -1013,24 +1059,12 @@
 											<input type="email" placeholder="Email" />
 										</div>
 									</div>
-									<div class="col-md-6">
-										<div class="single-input">
-											<input type="number" placeholder="Phone" />
-										</div>
-									</div>
-
-									<div class="col-md-12">
-										<div class="single-input">
-											<input type="text" placeholder="Subject" />
-										</div>
-									</div>
-
 									<div class="col-md-12">
 										<div class="single-input">
 											<textarea rows="5" placeholder="Message"></textarea>
 										</div>
 										<div class="button mt-30">
-											<button class="theme-btn1" type="submit">Get Started</button>
+											<button class="theme-btn1" type="submit">Send</button>
 										</div>
 									</div>
 								</div>
@@ -1043,33 +1077,33 @@
 	</div>
 
 	<style>
-		li {
+		#post-content li {
 			margin-top: 4px;
 			margin-bottom: 4px;
 		}
-		ul li {
+		#post-content ul li {
 			list-style: disc;
 			margin-left: 48px;
 		}
-		ol {
+		#post-content ol {
 			padding-left: 0px;
 		}
-		ol, ul {
+		#post-content ol, ul {
 			margin-top: 8px;
 			margin-bottom: 8px;
 		}
-		ol li {
+		#post-content ol li {
 			list-style: decimal;
 			margin-left: 53px;
 		}
-		ul li::marker {
+		#post-content ul li::marker {
 			color: blue;
 		}
-		ol li::marker {
+		#post-content ol li::marker {
 			color: #070A1D;
 			font-weight: bold;
 		}
-		li::marker {
+		#post-content li::marker {
 			font-size: 1.25rem !important;
 		}
 
@@ -1105,6 +1139,9 @@
 			color: #070A1D;
 		}
 
+		#post-content pre code {
+			border-radius: 8px;
+		}
 		/* Highlight.js Language Labels */
 		.hljs-language-label {
 			position: absolute;
