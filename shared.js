@@ -58,7 +58,7 @@ function parseYAML(yamlString) {
 }
 
 function checkRunningLocally() {
-    const isRunningLocally = window.location.protocol === "file:";
+    let isRunningLocally = window.location.protocol === "file:";
     if (isRunningLocally) {
         console.log("The application is running from a local file.");
     } else {
@@ -183,6 +183,27 @@ function setupCards(postTemplate, container, threeWideLayout) {
         postClone.querySelectorAll(".stretched-link").forEach( link => {
             link.href = "blog-post.html?id=" + post.id;
         });
+
+        if (post.isPrevPost || post.isNextPost) {
+            console.log('postId: ', post.id, '\nisPrevPost: ', post.isPrevPost, '\nisNextPost: ', post.isNextPost);
+            const prevNextDisplay = document.createElement('span');
+            prevNextDisplay.style.zIndex = '3';
+            prevNextDisplay.style.position = 'absolute';
+            prevNextDisplay.style.backgroundColor = 'white';
+            prevNextDisplay.style.borderRadius = '12px';
+            prevNextDisplay.style.margin = '12px';
+            prevNextDisplay.style.padding = '12px';
+            prevNextDisplay.style.fontWeight = 'bold';
+            prevNextDisplay.style.fontSize = 'var(--f-fs-font-fs20)';
+            prevNextDisplay.style.opacity = '90%';
+            if (post.isPrevPost)
+                prevNextDisplay.textContent = 'Previous Post';
+            else if (post.isNextPost)
+                prevNextDisplay.textContent = 'Next Post';
+            
+            postClone.querySelector('.thumbnail').prepend(prevNextDisplay);
+            //postClone.querySelector('.thumbnail .stretched-link:after').style.zIndex = '4 !important'; 
+        }
 
         container.appendChild(postClone);
     });
