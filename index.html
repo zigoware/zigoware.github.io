@@ -237,6 +237,42 @@
 
 	<div class="hero1">
 		<div class="container">
+			<style>
+				.about-site { margin-top: 120px; margin-bottom: 30px; padding: 32px; background: #fff; border: 1px solid #e6e2fb; border-radius: 12px; box-shadow: 0 6px 20px rgba(79, 46, 220, 0.08); }
+				.about-site h2 { font-size: 28px; margin-bottom: 8px; }
+				.about-site .about-site-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 24px 0; padding: 0; list-style: none; }
+				.about-site .about-site-steps li { padding: 16px; background: #f6f4fe; border-radius: 10px; font-size: 15px; line-height: 1.6; }
+				.about-site .about-site-steps i { display: block; font-size: 22px; color: #4f2edc; margin-bottom: 8px; }
+				.about-site .about-site-steps strong { display: block; margin-bottom: 4px; }
+				.about-site code { font-size: 14px; color: #4f2edc; }
+				.about-site .about-site-link { display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; background: #4f2edc; color: #fff; border-radius: 8px; font-weight: 600; }
+				.about-site .about-site-link:hover { background: #3a1fb8; color: #fff; }
+				@media (max-width: 767px) { .about-site { padding: 20px; } .about-site h2 { font-size: 22px; } }
+			</style>
+			<section class="about-site" aria-labelledby="about-site-title">
+				<h2 id="about-site-title">How this site works</h2>
+				<p>Zigoware is a static blog hosted on GitHub Pages. There's no backend or build step: the browser loads plain files and JavaScript assembles each page.</p>
+				<ul class="about-site-steps">
+					<li>
+						<i class="fa-solid fa-file-lines"></i>
+						<strong>Posts are Markdown</strong>
+						Each post is a <code>.md</code> file in <code>/blog-posts/</code>, and its title, date, author and tags live in <code>posts.yml</code>.
+					</li>
+					<li>
+						<i class="fa-solid fa-code"></i>
+						<strong>Pages build in the browser</strong>
+						JavaScript reads <code>posts.yml</code> to create the post cards here and on Categories, and the post page renders the Markdown with markdown-it.
+					</li>
+					<li>
+						<i class="fa-solid fa-laptop-code"></i>
+						<strong>Local writing helper</strong>
+						A small Express server in <code>/local-dev/</code> serves the files, updates post dates after edits, and copies AI prompts for drafting and registering posts.
+					</li>
+				</ul>
+				<a class="about-site-link" href="https://github.com/zigoware/zigoware.github.io" target="_blank" rel="noopener">
+					<i class="fa-brands fa-github"></i> View the source on GitHub
+				</a>
+			</section>
 			<div class="hero1-bg bg-cover" style="background-image: url(assets/img/bg/hero1-bg.jpg)">
 				<div class="row align-items-center">
 					<div class="col-lg-5">
@@ -275,6 +311,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8">
+					<div class="ai-disclaimer" role="note" style="display: flex; align-items: center; gap: 16px; margin-bottom: 30px; padding: 20px 24px; background: #4f2edc; color: #fff; border-radius: 10px; box-shadow: 0 6px 20px rgba(79, 46, 220, 0.25);">
+						<i class="fa-solid fa-robot" style="font-size: 32px; flex-shrink: 0;"></i>
+						<div style="font-size: 18px; line-height: 1.5;">
+							<strong style="display: block; font-size: 20px; margin-bottom: 2px;">AI-generated test content</strong>
+							The blog posts on this site were written by AI for testing purposes.
+						</div>
+					</div>
 					<div class="blog1-posts-area">
 						<div class="row">
 							<div id="post-template" hidden class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="0">
@@ -737,9 +780,9 @@
 						<div class="sidebar-widget_1 _author-intro mt-40" style="margin-top: 0px; margin-bottom: 40px;">
 							<div class="sidebar-author-thumb text-center">
 								<img class="my-author-image" src="./pics/p1.jpg" alt="Dzenis Profile Picture" />
-								<h4>Allen Davis</h4>
+								<h4>Dzenis Zigo</h4>
 								<div class="heading1">
-									<p>IT enthusiast with a B.S. from the University of Illinois and a CompTIA A+ certification.</p>
+									<p>IT enthusiast with a B.S. from Northern Illinois University and a CompTIA A+ certification.</p>
 								</div>
 								<div class="footer-social1">
 									<ul>
@@ -764,10 +807,10 @@
 						</div>
 						<div class="sidebar-widget_1 _author-intro mt-40" style="margin-top: 0px; margin-bottom: 40px;">
 							<div class="sidebar-author-thumb text-center">
-								<img class="my-author-image" src="assets/img/blog/sidebar-author1.png" alt="vexon" />
-								<h4>Allen Davis</h4>
+								<img class="my-author-image" src="./pics/anonymous.svg" alt="Eldar Profile Picture" />
+								<h4>Eldar Zigo</h4>
 								<div class="heading1">
-									<p>IT enthusiast with a B.S. from the University of Illinois and a CompTIA A+ certification.</p>
+									<p>IT enthusiast with a B.S. from Northern Illinois University and over 20 years of industry experience.</p>
 								</div>
 								<div class="footer-social1">
 									<ul>
