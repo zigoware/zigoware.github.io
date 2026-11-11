@@ -153,7 +153,7 @@ function setupCards(postTemplate, container, threeWideLayout) {
 
         postIndex++;
 
-        postClone.querySelector("#thumbnail").src = post.thumbnail;
+        setPostIcon(postClone.querySelector("#thumbnail"), post);
 
         if (post.tags.includes("security")) {
             postClone.querySelector("#category").textContent = "Security";
@@ -207,4 +207,9 @@ function setupCards(postTemplate, container, threeWideLayout) {
 
         container.appendChild(postClone);
     });
+}
+// Fill a post icon tile with the post's emoji and pastel background from posts.yml
+function setPostIcon(element, post) {
+    element.textContent = post.icon || "📄";
+    element.style.setProperty("--thumb", post.color || "#eef0f4");
 }

@@ -4,10 +4,22 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Vexon - Modern Blog</title>
+	<title>Zigoware – IT, Security &amp; Networking Blog</title>
+
+	<!--=====SEO & SHARING=======-->
+	<meta name="description" content="Practical notes on IT operations, cybersecurity and networking: endpoint security, backups, support troubleshooting and more." />
+	<link rel="canonical" href="https://zigoware.github.io/" />
+	<meta property="og:site_name" content="Zigoware" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Zigoware – IT, Security &amp; Networking Blog" />
+	<meta property="og:description" content="Practical notes on IT operations, cybersecurity and networking: endpoint security, backups, support troubleshooting and more." />
+	<meta property="og:url" content="https://zigoware.github.io/" />
+	<meta property="og:image" content="https://zigoware.github.io/pics/zigoware-blue.png" />
+	<meta name="twitter:card" content="summary" />
+	<link rel="alternate" type="application/rss+xml" title="Zigoware" href="https://zigoware.github.io/feed.xml" />
 
 	<!--=====FAB ICON=======-->
-	<link rel="shortcut icon" href="assets/img/logo/title1.svg" type="image/x-icon" />
+	<link rel="icon" href="pics/favicon.svg" type="image/svg+xml" />
 
 	<!--=====CSS=======-->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
@@ -21,6 +33,7 @@
 	<link rel="stylesheet" href="assets/css/mobile-menu.css" />
 	<link rel="stylesheet" href="assets/css/utility.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="shared.css" />
 
 	<!--=====JQUERY=======-->
 	<script src="assets/js/jquery-3-7-1.min.js"></script>
@@ -62,48 +75,7 @@
 
 	<!--=====PRELOADER START=======-->
 
-	<!-- search popup start -->
-	<div class="search__popup">
-		<div class="container">
-			<div class="row">
-				<div class="col-xxl-12">
-					<div class="search__wrapper">
-						<div class="search__top d-flex justify-content-between align-items-center">
-							<div class="search__logo">
-								<a href="index.html">
-									<img src="assets/img/logo/white-logo.png" alt="vexon" />
-								</a>
-							</div>
-							<div class="search__close">
-								<button type="button" class="search__close-btn search-close-btn">
-									<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-									</svg>
-								</button>
-							</div>
-						</div>
-						<div class="search__form">
-							<form action="#">
-								<div class="search__input">
-									<input class="search-input-field" type="text" placeholder="Type here to search..." />
-									<span class="search-focus-border"></span>
-									<button type="submit">
-										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-											<path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-										</svg>
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- search popup end -->
-
+	
 	<!--=====HEADER START=======-->
 	<header>
 		<div class="header-area header-area1 d-none d-lg-block" id="header">
@@ -113,7 +85,7 @@
 						<div class="header-elements" style="padding: 12px !important;">
 							<div class="site-logo">
 								<a href="index.html">
-									<img src="pics/zigoware.png" alt="zigoware text logo" />
+									<img src="pics/zigoware.png" alt="Zigoware home" />
 								</a>
 							</div>
 
@@ -141,10 +113,6 @@
 									padding-top: 12px;
 								}
 							</style>
-
-							<div class="header1-buttons">
-								<a class="theme-btn1" href="sigup.html">Subscribe </a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -160,7 +128,7 @@
 			<div class="col-12">
 				<div class="mobile-header-elements">
 					<div class="mobile-logo">
-						<a href="index.html"><img src="pics/zigoware.png" alt="zigoware text logo" /></a>
+						<a href="index.html"><img src="pics/zigoware.png" alt="Zigoware home" /></a>
 					</div>
 					<style>
 						.mobile-logo a img {
@@ -177,7 +145,7 @@
 
 	<div class="mobile-sidebar d-block d-lg-none">
 		<div class="logo-m">
-			<a href="index.html"><img src="pics/zigoware-centered.png" style="margin-top: 12px;" alt="zigoware text logo" /></a>
+			<a href="index.html"><img src="pics/zigoware-centered.png" style="margin-top: 12px;" alt="Zigoware home" /></a>
 		</div>
 		<style>
 			.logo-m, 
@@ -200,10 +168,6 @@
 					<a href="contact.html">Contact Us</a>
 				</li>
 			</ul>
-
-			<div class="mobile-button">
-				<a class="theme-btn1" href="contact.html">Subscribe <i class="fa-solid fa-arrow-right"></i></a>
-			</div>
 		</div>
 		<style>
 			.mobile-sidebar,
@@ -277,25 +241,18 @@
 				<div class="row align-items-center">
 					<div class="col-lg-5">
 						<div class="main-image reveal">
-							<img src="assets/img/hero/hero1-image.png" alt="vexon" />
+							<img src="assets/img/hero/hero1-image.png" alt="" />
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<div class="main-heading1">
-							<h1 class="text-anime-style-3">Unlocking The Secrets To Social Media Success</h1>
-							<p class="mt-16" data-aos="fade-left" data-aos-duration="400" data-aos-delay="100">Social
-								media is more than just a platform—it’s a powerful tool for building connections,
-								amplifying your brand, and driving growth. At Vexon, we provide insights and strategies
-								to help you stand out in the ever-evolving social media landscape.</p>
-							<div class="form-area">
-								<form action="#" data-aos="fade-left" data-aos-duration="400" data-aos-delay="100">
-									<input type="email" placeholder="Enter Your Email" />
-									<div class="button">
-										<button class="theme-btn1">Get Started</button>
-									</div>
-								</form>
+							<h1 class="text-anime-style-3">Practical Notes on IT, Security and Networking</h1>
+							<p class="mt-16" data-aos="fade-left" data-aos-duration="400" data-aos-delay="100">Zigoware
+								covers the everyday work of keeping systems running and secure: protecting endpoints,
+								planning backups, troubleshooting support issues and designing networks that hold up.</p>
+							<div class="mt-30" data-aos="fade-left" data-aos-duration="400" data-aos-delay="100">
+								<a class="theme-btn1" href="categories.html">Browse all posts <i class="fa-solid fa-arrow-right"></i></a>
 							</div>
-							<p class="bottom-content" data-aos="fade-left" data-aos-duration="1100" data-aos-delay="100">❊ Connect, engage, & inspire—social media success starts here.</p>
 						</div>
 					</div>
 				</div>
@@ -324,7 +281,7 @@
 								<div class="position-relative blog1-single-box">
 									<div class="thumbnail image-anime position-relative" style="z-index: 2;">
 
-										<img id="thumbnail" src="assets/img/blog/blog1-image1.png" alt="generic thumbnail image" />
+										<div id="thumbnail" class="post-icon" aria-hidden="true"></div>
 										
 										<a class="stretched-link" href="#"></a>
 										
@@ -340,7 +297,7 @@
 									<div class="heading1">
 										<div class="social-area">
 											<a id="category" style="z-index: 2;" href="categories.html?category=social-media" class="social">Example Category</a>
-											<a class="time"><img src="assets/img/icons/time1.svg" alt="small clock icon" />
+											<a class="time"><img src="assets/img/icons/time1.svg" alt="" />
 												<span id="timetoread">
 													 xy min read
 												</span>
@@ -353,12 +310,12 @@
 										<div class="author-area">
 											<div class="author">
 												<div class="author-tumb">
-													<img id="author-thumbnail" src="assets/img/blog/blog1-author1.png" alt="small author portrait thumbnail" />
+													<img id="author-thumbnail" src="assets/img/blog/blog1-author1.png" alt="" />
 												</div>
 												<a id="author" style="z-index: 2;" href="author.html" class="author-text">Kimberly Mastrangelo</a>
 											</div>
 											<div id="tempid" style="margin-left: auto; margin-right: 0; padding-left: 0px;" class="date">
-												<a style="content: none;" href="#"><img src="assets/img/icons/date1.svg" alt="small calendar icon" />
+												<a style="content: none;" href="#"><img src="assets/img/icons/date1.svg" alt="" />
 													<span id="date">Oct 26, 2035</span> 
 												</a>
 												<style>
@@ -378,24 +335,6 @@
 							</div>
 
 							
-							<script>
-								/* Apparently this method below isn't supported
-								if (!window.performance) {
-									console.info("window.performance NOT WORKING on this browser");
-
-									document.getElementById("post-template").style = styleToStopScrollingBehavior;
-								} else {
-									console.info(performance.navigation.type);
-
-									if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
-										console.info( "This page is reloaded" );
-
-										document.getElementById("post-template").style = styleToStopScrollingBehavior;
-									} else {
-										console.info( "This page is not reloaded");
-									}
-								} */
-							</script>
 
 							<!-- Script to download blog post metadata and populate post cards using post-template-->
 							<script>
@@ -432,303 +371,8 @@
 									postTemplate.remove();
 								}
 
-								// copy paste
-								/*
-								fetch('blog-posts/improved/yaml/posts.yml')
-									.then(response => response.text())
-									.then(yamlText => {
-										const posts = jsyaml.load(yamlText);
-										const postTemplate = document.getElementById("post-template");
-
-										posts.forEach(post => {
-											const postClone = postTemplate.content.cloneNode(true);
-											postClone.querySelector(".post-title").textContent = post.title;
-											postClone.querySelector(".post-description").textContent = post.description;
-											postClone.querySelector(".post-thumbnail").src = post.thumbnail;
-											postClone.querySelector(".post-author").textContent = post.author;
-											postClone.querySelector(".post-date").textContent = post.date;
-
-											document.getElementById("post-container").appendChild(postClone);
-										});
-									})
-									.catch(error => console.error("Error loading YAML:", error));
-								*/
 							</script>
 
-							<!--
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="100">
-								<div class="blog1-single-box sm:mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image2.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Social Media</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">Proven Strategies to Boost Your Social Media
-												Metrics</a></h4>
-										<p class="mt-16">Engagement is key to building a loyal following. Learn
-											techniques for crafting posts that invite interaction, encouraging shares.
-										</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author2.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">Kathy Pacheco</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Oct 21,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="0">
-								<div class="blog1-single-box mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image3.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Brand’s</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">The Power of Storytelling: How to Make Your
-												Brand’s Voice Stand Out</a></h4>
-										<p class="mt-16">Discover ways to create relatable and impactful stories that
-											reinforce your brand and keep followers coming back.</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author3.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">Corina McCoy</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Nov 2,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="100">
-								<div class="blog1-single-box mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image4.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Content</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">Mastering Content Calendars: A Guide to
-												Consistent and Strategic.</a></h4>
-										<p class="mt-16">Consistency is crucial for success on social media. This guide
-											helps you create an effective content calendar to stay organized.</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author4.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">Rodger Struck</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Nov 6,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="0">
-								<div class="blog1-single-box mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image5.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Trending</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">Social Media Trends for 2024: What to Watch and
-												How to Adapt </a></h4>
-										<p class="mt-16">The social media landscape evolves quickly. Stay ahead of the
-											curve by understanding key trends for 2024,</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author5.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">Rhonda Rhodes</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Nov 6,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="100">
-								<div class="blog1-single-box mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image6.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Brand Consistency</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">Creating a Visual Identity: Tips for Aesthetic
-												and Brand Consistency </a></h4>
-										<p class="mt-16">This post covers tips on color schemes, fonts, and visuals to
-											keep your profile visually appealing and cohesive.</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author5.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">Katie Sims</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Nov 6,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="0">
-								<div class="blog1-single-box mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image7.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Gen - Z</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">How to Build Authentic Connections with the New
-												Generation</a></h4>
-										<p class="mt-16">Gen Z is reshaping digital interaction. Learn what matters to
-											this generation and how to create authentic, meaningful content.</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author5.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">David Elson</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Oct 26,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="100">
-								<div class="blog1-single-box mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image8.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Social Media</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">Harnessing Analytics: Using Data to Refine Your
-												Social Media Strategy</a></h4>
-										<p class="mt-16">Gen Z is reshaping digital interaction. Learn what matters to
-											this generation and how to create authentic, meaningful content.</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author5.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">Kenneth Allen</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Oct 26,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="0">
-								<div class="blog1-single-box mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image9.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Social Media</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">From Follower to Customer: Turning Social
-												Engagement into Sales</a></h4>
-										<p class="mt-16">Transforming followers into customers requires a solid
-											strategy. This post offers insights on using social media as a powerful tool
-											convert.</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author2.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">Judith Rodriguez</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Oct 26,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="col-md-6" data-aos="fade-up" data-aos-offset="50" data-aos-duration="400" data-aos-delay="100">
-								<div class="blog1-single-box mt-30">
-									<div class="thumbnail image-anime">
-										<img src="assets/img/blog/blog1-image10.png" alt="vexon" />
-									</div>
-									<div class="heading1">
-										<div class="social-area">
-											<a href="social-media.html" class="social">Feedback</a>
-											<a href="categories.html" class="time"><img src="assets/img/icons/time1.svg" alt="vexon" /> 3 min read</a>
-										</div>
-										<h4><a href="blog-single.html">Handling Negative Feedback: Maintaining Brand
-												Reputation.</a></h4>
-										<p class="mt-16">Dealing with criticism on social media can be challenging.
-											Learn ways to manage negative feedback professionally to protect your brand.
-										</p>
-										<div class="author-area">
-											<div class="author">
-												<div class="author-tumb">
-													<img src="assets/img/blog/blog1-author6.png" alt="vexon" />
-												</div>
-												<a href="author.html" class="author-text">Iva Ryan</a>
-											</div>
-											<div class="date">
-												<a href="#"><img src="assets/img/icons/date1.svg" alt="vexon" /> Oct 26,
-													2024 </a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							-->
 						</div>
 
 						<div class="space60"></div>
@@ -836,11 +480,11 @@
 							<div id="recent-post-template" hidden style="align-items: start;" class="position-relative blog1-recent-box">
 								<div class="">
 									<div class="recent-thumb">
-										<img id="thumbnail" style="object-fit: cover; height: 82px; border-radius: 15%; margin-top: 4px;" src="assets/img/blog/blog1-recent1.png" alt="generic thumbnail image" />
+										<div id="thumbnail" class="post-icon post-icon-small" aria-hidden="true"></div>
 									</div>
 								</div>
 								<div class="heading">
-									<a class="date"><img src="assets/img/icons/date1.svg" alt="small calendar icon"/> 
+									<a class="date"><img src="assets/img/icons/date1.svg" alt=""/> 
 										<span id="date">
 											Oct 31, 2035
 										</span>
@@ -897,7 +541,7 @@
 										recentPostClone.removeAttribute("hidden"); 
 										recentPostClone.removeAttribute("id"); // Remove the id to avoid duplicates (might affect SEO)
 
-										recentPostClone.querySelector("#thumbnail").src = myPost.thumbnail;
+										setPostIcon(recentPostClone.querySelector("#thumbnail"), myPost);
 										recentPostClone.querySelector("#date").textContent = dayjs(myPost.date).format("MMM D, YYYY");
 										
 										let newTitle = cutOffStringAtMaxCharacters(myPost.title, 55)
@@ -912,55 +556,6 @@
 								}
 							</script>
 
-							<!-- Example of a recent post card, to be replaced by the script above
-							<div class="blog1-recent-box mt-16">
-								<div class="">
-									<div class="recent-thumb">
-										<img src="assets/img/blog/blog1-recent2.png" alt="vexon" />
-									</div>
-								</div>
-								<div class="heading">
-									<a href="#" class="date"><img src="assets/img/icons/date1.svg" alt="vexon" /> Oct
-										12, 2024</a>
-									<h5><a href="blog-single.html">Mastering Content Calendars: A Guide to Consistent
-											Strat...</a></h5>
-								</div>
-							</div>
-
-							<div class="blog1-recent-box mt-16">
-								<div class="">
-									<div class="recent-thumb">
-										<img src="assets/img/blog/blog1-recent3.png" alt="vexon" />
-									</div>
-								</div>
-								<div class="heading">
-									<a href="#" class="date"><img src="assets/img/icons/date1.svg" alt="vexon" /> Oct
-										21, 2024</a>
-									<h5><a href="blog-single.html">Social Media Trends for 2024: What to Watch and How
-											to...</a></h5>
-								</div>
-							</div>
-
-							<div class="blog1-recent-box mt-16">
-								<div class="">
-									<div class="recent-thumb">
-										<img src="assets/img/blog/blog1-recent4.png" alt="vexon" />
-									</div>
-								</div>
-								<div class="heading">
-									<a href="#" class="date"><img src="assets/img/icons/date1.svg" alt="vexon" /> Oct
-										19, 2024 </a>
-									<h5><a href="blog-single.html">Creating a Visual Identity: Tips for Aesthetic &
-											Brand Consi...</a></h5>
-								</div>
-							</div>
-							 -->
-						</div>
-						<div class="sidebar-widget_1 _search-area1">
-							<h3>Search</h3>
-							<form action="#">
-								<input type="text" placeholder="Search..." />
-							</form>
 						</div>
 					</div>
 				</div>
@@ -974,67 +569,27 @@
 
 	<!--===== BLOG CETEGORYS END=======-->
 
-	<!--===== CTA AREA START=======-->
-
-	<div class="cta1">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<div class="heading1-w">
-						<h2>Ready to Elevate Your Social Media Game?</h2>
-						<p class="mt-16">Unlock the tools and insights you need to thrive on social media with Vexon.
-							Join our community for expert tips, trending strategies, and resources that empower you to
-							stand out and succeed.</p>
-						<div class="form-area">
-							<form action="#">
-								<input type="email" placeholder="Enter Your Email" />
-								<div class="button">
-									<button class="theme-btn1">Get Started</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-6">
-					<div class="image text-end sm:text-start md:text-start sm:mt-30 md:mt-30">
-						<img src="assets/img/hero/hero1-image.png" alt="vexon" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--===== CTA AREA END=======-->
-
-	<!--===== FOOTER AREA START=======-->
+			<!--===== FOOTER AREA START=======-->
 
 	<div class="footer1 mt-80 md:mt-40 sm:mt-40">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-6">
+				<div class="col-lg-6 col-md-6 mb-50 sm:mb-30">
 					<div class="logo">
-						<a href="index.html"><img src="assets/img/logo/header-logo1.png" alt="vexon" /></a>
+						<a href="index.html"><img src="pics/zigoware.png" alt="Zigoware home" style="width: 160px;" /></a>
 					</div>
 					<div class="heading1 mt-16">
-						<p>Vexon is your hub for the latest in digital innovation, technology trends, creative insights.
-							Our mission is to empower creators, businesses, valuable resource.</p>
+						<p>Zigoware is a small IT blog covering security, networking and practical how-tos.</p>
 						<div class="footer-social1">
 							<ul>
 								<li>
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+									<a href="https://www.linkedin.com/in/dzeniszigo/" aria-label="Dzenis Zigo on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+									<a href="https://github.com/zigoware/zigoware.github.io" aria-label="Zigoware on GitHub"><i class="fa-brands fa-github"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa-brands fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa-regular fa-basketball"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa-brands fa-behance"></i></a>
+									<a href="feed.xml" aria-label="RSS feed"><i class="fa-solid fa-rss"></i></a>
 								</li>
 							</ul>
 						</div>
@@ -1042,77 +597,32 @@
 				</div>
 				<div class="col-lg-3 col-md-6 mb-50 sm:mb-30 sm:mt-30">
 					<div class="footer-list1 ml-80 md:ml-0 sm:ml-0">
-						<h3>Explore Categories</h3>
+						<h3>Categories</h3>
 						<ul>
-							<li><a href="#">Digital Marketing </a></li>
-							<li><a href="#">Ai & Technology </a></li>
-							<li><a href="#">Content Strategy </a></li>
-							<li><a href="#">Social Media </a></li>
-							<li><a href="#">SEO & Analytics </a></li>
-							<li><a href="#">Design & Development </a></li>
+							<li><a href="categories.html?c=security">Security</a></li>
+							<li><a href="categories.html?c=networking">Networking</a></li>
+							<li><a href="categories.html?c=tutorial">Tutorial</a></li>
 						</ul>
 					</div>
 				</div>
-
 				<div class="col-lg-3 col-md-6">
 					<div class="footer-list1 ml-50 md:ml-0 sm:ml-0 mb-50 sm:mb-30">
 						<h3>Quick Links</h3>
 						<ul>
-							<li><a href="#">Home </a></li>
-							<li><a href="#">Blog </a></li>
-							<li><a href="#">Features </a></li>
-							<li><a href="#">Contact us </a></li>
-							<li><a href="#">Privacy & policy </a></li>
-							<li><a href="#">Terms of Services </a></li>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="categories.html">Categories</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="feed.xml">RSS feed</a></li>
 						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-contact-list1 mb-50 sm:mb-30">
-						<h3>Contact Us</h3>
-						<div class="footer-contact-box1">
-							<div class="icon">
-								<img src="assets/img/icons/footer1-icon1.svg" alt="vexon" />
-							</div>
-							<div class="text">
-								<a href="#">support@vexon.com</a>
-							</div>
-						</div>
-
-						<div class="footer-contact-box1">
-							<div class="icon">
-								<img src="assets/img/icons/footer1-icon2.svg" alt="vexon" />
-							</div>
-							<div class="text">
-								<a href="#">8708 Technology Forest Pl <br />
-									Suite 125 -G, The Woodlands, <br />
-									TX 773</a>
-							</div>
-						</div>
-
-						<div class="footer-contact-box1">
-							<div class="icon">
-								<img src="assets/img/icons/footer1-icon3.svg" alt="vexon" />
-							</div>
-							<div class="text">
-								<a href="#">123-456-7890</a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="coppyrihgt1">
 				<div class="row coppyrihgt-border">
-					<div class="col-md-6">
-						<p class="coppyrihgt">© 2024 Vexon, Inc. All Rights Reserved.</p>
-					</div>
-					<div class="col-md-6">
-						<div class="conditions">
-							<a href="#"> Privacy Policy </a>
-							<a href="#"> Terms & Conditions </a>
-						</div>
+					<div class="col-md-12">
+						<p class="coppyrihgt">© <span class="footer-year">2026</span> Zigoware. All rights reserved.</p>
+						<script>document.querySelectorAll('.footer-year').forEach(e => e.textContent = new Date().getFullYear());</script>
 					</div>
 				</div>
 			</div>

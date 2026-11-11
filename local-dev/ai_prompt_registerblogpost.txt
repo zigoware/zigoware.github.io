@@ -11,7 +11,8 @@ date: <insert the current date in MM-DD-YYYY format>
 author: Dzenis Zigo
 title: <generate a title for the blog post>
 description: <generate a description for the blog post (one or two sentences)>
-thumbnail: ./pics/thumbnails/t1.png <do not edit the thumbnail (remove this sentence)>
+icon: <pick one emoji that represents the topic of the blog post, different from the icons already used in posts.yml if possible>
+color: <pick a soft pastel background color for the icon as a hex code, for example #e6eef8>
 tags: ["security"] <do not edit the tags (remove this sentence)>
 timetoread: <estimate the time it would take, in minutes, for someone to read this blog post>
 score: <give this improved blog post a score of 0 to 100 (with 50 being an average blog post). Include factors such as SEO (Search Engine Optimization), usefulness, and how interesting the content and topic is. Base64 Encode this value.>

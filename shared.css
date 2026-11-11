@@ -1,0 +1,33 @@
+/* Post icon tiles: a pastel panel with one emoji, used in place of post thumbnail images.
+   The background comes from each post's "color" in posts.yml (set as --thumb by setPostIcon in shared.js). */
+.post-icon {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	aspect-ratio: 370 / 250;
+	background: var(--thumb, #eef0f4);
+	font-size: 64px;
+	line-height: 1;
+	user-select: none;
+}
+
+.post-icon-large {
+	aspect-ratio: 1170 / 500;
+	font-size: 112px;
+	border-radius: 16px;
+}
+
+.post-icon-small {
+	width: 82px;
+	height: 82px;
+	aspect-ratio: auto;
+	font-size: 36px;
+	border-radius: 15%;
+	margin-top: 4px;
+}
+
+@media (max-width: 575px) {
+	.post-icon-large {
+		font-size: 72px;
+	}
+}

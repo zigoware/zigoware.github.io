@@ -1,7 +1,11 @@
 var express = require("express");
 const fs = require('node:fs');
 const util = require('util');
+const generateFeeds = require('./generate-feeds');
 var app = express();
+
+// Refresh sitemap.xml and feed.xml from posts.yml on every start
+generateFeeds();
 
 app.use(express.json());
 

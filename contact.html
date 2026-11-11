@@ -4,10 +4,22 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Vexon || Contact Us</title>
+	<title>Contact – Zigoware</title>
+
+	<!--=====SEO & SHARING=======-->
+	<meta name="description" content="Get in touch with Zigoware on LinkedIn or GitHub." />
+	<link rel="canonical" href="https://zigoware.github.io/contact.html" />
+	<meta property="og:site_name" content="Zigoware" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Contact – Zigoware" />
+	<meta property="og:description" content="Get in touch with Zigoware on LinkedIn or GitHub." />
+	<meta property="og:url" content="https://zigoware.github.io/contact.html" />
+	<meta property="og:image" content="https://zigoware.github.io/pics/zigoware-blue.png" />
+	<meta name="twitter:card" content="summary" />
+	<link rel="alternate" type="application/rss+xml" title="Zigoware" href="https://zigoware.github.io/feed.xml" />
 
 	<!--=====FAB ICON=======-->
-	<link rel="shortcut icon" href="assets/img/logo/title1.svg" type="image/x-icon" />
+	<link rel="icon" href="pics/favicon.svg" type="image/svg+xml" />
 
 	<!--=====CSS=======-->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
@@ -21,6 +33,7 @@
 	<link rel="stylesheet" href="assets/css/mobile-menu.css" />
 	<link rel="stylesheet" href="assets/css/utility.css" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="shared.css" />
 
 	<!--=====JQUERY=======-->
 	<script src="assets/js/jquery-3-7-1.min.js"></script>
@@ -56,48 +69,7 @@
 
 	<!--=====PRELOADER START=======-->
 
-	<!-- search popup start -->
-	<div class="search__popup">
-		<div class="container">
-			<div class="row">
-				<div class="col-xxl-12">
-					<div class="search__wrapper">
-						<div class="search__top d-flex justify-content-between align-items-center">
-							<div class="search__logo">
-								<a href="index.html">
-									<img src="assets/img/logo/white-logo.png" alt="vexon" />
-								</a>
-							</div>
-							<div class="search__close">
-								<button type="button" class="search__close-btn search-close-btn">
-									<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-										<path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-										<path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-									</svg>
-								</button>
-							</div>
-						</div>
-						<div class="search__form">
-							<form action="#">
-								<div class="search__input">
-									<input class="search-input-field" type="text" placeholder="Type here to search..." />
-									<span class="search-focus-border"></span>
-									<button type="submit">
-										<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-											<path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-										</svg>
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- search popup end -->
-
+	
 	<!--=====HEADER START=======-->
 	<header>
 		<div class="header-area header-area1 d-none d-lg-block" id="header">
@@ -107,7 +79,7 @@
 						<div class="header-elements" style="padding: 12px !important;">
 							<div class="site-logo">
 								<a href="index.html">
-									<img src="pics/zigoware.png" alt="zigoware text logo" />
+									<img src="pics/zigoware.png" alt="Zigoware home" />
 								</a>
 							</div>
 
@@ -135,10 +107,6 @@
 									padding-top: 12px;
 								}
 							</style>
-
-							<div class="header1-buttons">
-								<a class="theme-btn1" href="sigup.html">Subscribe </a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -154,7 +122,7 @@
 			<div class="col-12">
 				<div class="mobile-header-elements">
 					<div class="mobile-logo">
-						<a href="index.html"><img src="pics/zigoware.png" alt="zigoware text logo" /></a>
+						<a href="index.html"><img src="pics/zigoware.png" alt="Zigoware home" /></a>
 					</div>
 					<style>
 						.mobile-logo a img {
@@ -171,7 +139,7 @@
 
 	<div class="mobile-sidebar d-block d-lg-none">
 		<div class="logo-m">
-			<a href="index.html"><img src="pics/zigoware-centered.png" style="margin-top: 12px;" alt="zigoware text logo" /></a>
+			<a href="index.html"><img src="pics/zigoware-centered.png" style="margin-top: 12px;" alt="Zigoware home" /></a>
 		</div>
 		<style>
 			.logo-m, 
@@ -194,10 +162,6 @@
 					<a href="contact.html">Contact Us</a>
 				</li>
 			</ul>
-
-			<div class="mobile-button">
-				<a class="theme-btn1" href="contact.html">Subscribe <i class="fa-solid fa-arrow-right"></i></a>
-			</div>
 		</div>
 		<style>
 			.mobile-sidebar,
@@ -255,39 +219,14 @@
 			<div class="row">
 				<div class="col-lg-7 m-auto">
 					<div class="heading1 text-center">
-						<h2>We’d Love to Hear From You</h2>
-						<p class="mt-16">Whether you have questions, feedback, or just want to say hello, we’re here to connect. Your thoughts and insights help us make Vexon better every day, and we’re always excited to hear from our readers.</p>
+						<h2>Get in Touch</h2>
+						<p class="mt-16">Questions about a post, spotted a mistake, or want to talk IT? Reach out through one of the channels below.</p>
+						<div class="mt-30" style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+							<a class="theme-btn1" href="https://www.linkedin.com/in/dzeniszigo/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> Message on LinkedIn</a>
+							<a class="theme-btn1" href="https://github.com/zigoware/zigoware.github.io/issues" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Open a GitHub issue</a>
+						</div>
 					</div>
 
-					<div class="contact-page-from">
-						<div class="heading1">
-							<h5>Leave a Reply</h5>
-							<p class="mt-10">Provide clear contact information, including phone number, email, and address.</p>
-						</div>
-						<form action="#">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="single-input">
-										<input type="text" placeholder="Name" />
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="single-input">
-										<input type="email" placeholder="Email" />
-									</div>
-								</div>
-								<div class="col-md-12">
-									<div class="single-input">
-										<textarea rows="5" placeholder="Message"></textarea>
-									</div>
-									<div class="button mt-30">
-										<button class="theme-btn1" type="submit">Send Reply</button>
-									</div>
-								</div>
-							</div>
-						</form>
-					</div>
-					
 				</div>
 			</div>
 		</div>
@@ -295,64 +234,27 @@
 
 	<!--===== CONTACT AREA END=======-->
 
-	<!--===== CTA AREA START=======-->
-
-	<div class="cta1">
-		<div class="container">
-			<div class="row align-items-center">
-				<div class="col-lg-6">
-					<div class="heading1-w">
-						<h2>Ready to Elevate Your Social Media Game?</h2>
-						<p class="mt-16">Unlock the tools and insights you need to thrive on social media with Vexon. Join our community for expert tips, trending strategies, and resources that empower you to stand out and succeed.</p>
-						<div class="form-area">
-							<form action="#">
-								<input type="email" placeholder="Enter Your Email" />
-								<div class="button">
-									<button class="theme-btn1">Get Started</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-6">
-					<div class="image text-end sm:text-start md:text-start sm:mt-30 md:mt-30">
-						<img src="assets/img/hero/hero1-image.png" alt="vexon" />
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!--===== CTA AREA END=======-->
-
-	<!--===== FOOTER AREA START=======-->
+			<!--===== FOOTER AREA START=======-->
 
 	<div class="footer1 mt-80 md:mt-40 sm:mt-40">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-6">
+				<div class="col-lg-6 col-md-6 mb-50 sm:mb-30">
 					<div class="logo">
-						<a href="index.html"><img src="assets/img/logo/header-logo1.png" alt="vexon" /></a>
+						<a href="index.html"><img src="pics/zigoware.png" alt="Zigoware home" style="width: 160px;" /></a>
 					</div>
 					<div class="heading1 mt-16">
-						<p>Vexon is your hub for the latest in digital innovation, technology trends, creative insights. Our mission is to empower creators, businesses, valuable resource.</p>
+						<p>Zigoware is a small IT blog covering security, networking and practical how-tos.</p>
 						<div class="footer-social1">
 							<ul>
 								<li>
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+									<a href="https://www.linkedin.com/in/dzeniszigo/" aria-label="Dzenis Zigo on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+									<a href="https://github.com/zigoware/zigoware.github.io" aria-label="Zigoware on GitHub"><i class="fa-brands fa-github"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="fa-brands fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa-regular fa-basketball"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa-brands fa-behance"></i></a>
+									<a href="feed.xml" aria-label="RSS feed"><i class="fa-solid fa-rss"></i></a>
 								</li>
 							</ul>
 						</div>
@@ -360,77 +262,32 @@
 				</div>
 				<div class="col-lg-3 col-md-6 mb-50 sm:mb-30 sm:mt-30">
 					<div class="footer-list1 ml-80 md:ml-0 sm:ml-0">
-						<h3>Explore Categories</h3>
+						<h3>Categories</h3>
 						<ul>
-							<li><a href="#">Digital Marketing </a></li>
-							<li><a href="#">Ai & Technology </a></li>
-							<li><a href="#">Content Strategy </a></li>
-							<li><a href="#">Social Media </a></li>
-							<li><a href="#">SEO & Analytics </a></li>
-							<li><a href="#">Design & Development </a></li>
+							<li><a href="categories.html?c=security">Security</a></li>
+							<li><a href="categories.html?c=networking">Networking</a></li>
+							<li><a href="categories.html?c=tutorial">Tutorial</a></li>
 						</ul>
 					</div>
 				</div>
-
 				<div class="col-lg-3 col-md-6">
 					<div class="footer-list1 ml-50 md:ml-0 sm:ml-0 mb-50 sm:mb-30">
 						<h3>Quick Links</h3>
 						<ul>
-							<li><a href="#">Home </a></li>
-							<li><a href="#">Blog </a></li>
-							<li><a href="#">Features </a></li>
-							<li><a href="#">Contact us </a></li>
-							<li><a href="#">Privacy & policy </a></li>
-							<li><a href="#">Terms of Services </a></li>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="categories.html">Categories</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="feed.xml">RSS feed</a></li>
 						</ul>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-md-6">
-					<div class="footer-contact-list1 mb-50 sm:mb-30">
-						<h3>Contact Us</h3>
-						<div class="footer-contact-box1">
-							<div class="icon">
-								<img src="assets/img/icons/footer1-icon1.svg" alt="vexon" />
-							</div>
-							<div class="text">
-								<a href="#">support@vexon.com</a>
-							</div>
-						</div>
-
-						<div class="footer-contact-box1">
-							<div class="icon">
-								<img src="assets/img/icons/footer1-icon2.svg" alt="vexon" />
-							</div>
-							<div class="text">
-								<a href="#">8708 Technology Forest Pl <br />
-									Suite 125 -G, The Woodlands, <br />
-									TX 773</a>
-							</div>
-						</div>
-
-						<div class="footer-contact-box1">
-							<div class="icon">
-								<img src="assets/img/icons/footer1-icon3.svg" alt="vexon" />
-							</div>
-							<div class="text">
-								<a href="#">123-456-7890</a>
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="coppyrihgt1">
 				<div class="row coppyrihgt-border">
-					<div class="col-md-6">
-						<p class="coppyrihgt">© 2024 Vexon, Inc. All Rights Reserved.</p>
-					</div>
-					<div class="col-md-6">
-						<div class="conditions">
-							<a href="#"> Privacy Policy </a>
-							<a href="#"> Terms & Conditions </a>
-						</div>
+					<div class="col-md-12">
+						<p class="coppyrihgt">© <span class="footer-year">2026</span> Zigoware. All rights reserved.</p>
+						<script>document.querySelectorAll('.footer-year').forEach(e => e.textContent = new Date().getFullYear());</script>
 					</div>
 				</div>
 			</div>

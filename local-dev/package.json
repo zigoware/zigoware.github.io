@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "node server.js",
+    "feeds": "node generate-feeds.js"
+  },
   "dependencies": {
     "express": "^5.1.0"
   }

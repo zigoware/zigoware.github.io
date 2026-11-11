@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zigoware</title>
+    <link>https://zigoware.github.io/</link>
+    <atom:link href="https://zigoware.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Practical notes on IT, security and networking.</description>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Nov 2025 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Ransomware Defense: Building a Bulletproof Backup Strategy</title>
+      <link>https://zigoware.github.io/blog-post.html?id=ransomware-backup-defense</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=ransomware-backup-defense</guid>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 GMT</pubDate>
+      <description>Comprehensive guide to architecting enterprise backup strategies that provide robust defense against ransomware attacks and ensure business continuity.</description>
+    </item>
+    <item>
+      <title>IT's Strategic Role in Environmental Sustainability: Green Technology Leadership</title>
+      <link>https://zigoware.github.io/blog-post.html?id=it-sustainability</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=it-sustainability</guid>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 GMT</pubDate>
+      <description>Comprehensive guide to implementing sustainable IT practices, from infrastructure optimization to green software development and environmental governance.</description>
+    </item>
+    <item>
+      <title>Endpoint Security in 2025: Critical Protection for Modern IT Infrastructure</title>
+      <link>https://zigoware.github.io/blog-post.html?id=endpoint-security-2025</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=endpoint-security-2025</guid>
+      <pubDate>Wed, 09 Jul 2025 00:00:00 GMT</pubDate>
+      <description>Comprehensive guide to endpoint security strategies, threats, and best practices for protecting modern distributed IT environments.</description>
+    </item>
+    <item>
+      <title>Zero Trust Architecture: Implementing Next-Generation Security Models</title>
+      <link>https://zigoware.github.io/blog-post.html?id=zero-trust-architecture</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=zero-trust-architecture</guid>
+      <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
+      <description>Comprehensive guide to implementing Zero Trust Architecture for modern enterprise environments, covering core principles, implementation strategies, and advanced security components.</description>
+    </item>
+    <item>
+      <title>Zero Trust Architecture: Implementing Next-Generation Security Models</title>
+      <link>https://zigoware.github.io/blog-post.html?id=zero-trust-architecture2</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=zero-trust-architecture2</guid>
+      <pubDate>Sun, 06 Jul 2025 00:00:00 GMT</pubDate>
+      <description>Comprehensive guide to implementing Zero Trust Architecture for modern enterprise environments, covering core principles, implementation strategies, and advanced security components.</description>
+    </item>
+    <item>
+      <title>The Critical Role of Cybersecurity Awareness Training in Modern Enterprise Security</title>
+      <link>https://zigoware.github.io/blog-post.html?id=security-awareness-training</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=security-awareness-training</guid>
+      <pubDate>Wed, 21 May 2025 00:00:00 GMT</pubDate>
+      <description>Comprehensive analysis of why cybersecurity awareness training remains essential for enterprise defense strategies in today's evolving threat landscape.</description>
+    </item>
+    <item>
+      <title>The Strategic Benefits of Cloud-Native Infrastructure</title>
+      <link>https://zigoware.github.io/blog-post.html?id=cloud-native-benefits</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=cloud-native-benefits</guid>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 GMT</pubDate>
+      <description>Comprehensive analysis of cloud-native infrastructure benefits including accelerated development, enhanced resilience, and cost optimization strategies.</description>
+    </item>
+    <item>
+      <title>5 Common IT Support Issues and How to Solve Them Efficiently</title>
+      <link>https://zigoware.github.io/blog-post.html?id=it-support-essentials</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=it-support-essentials</guid>
+      <pubDate>Fri, 28 Feb 2025 00:00:00 GMT</pubDate>
+      <description>Comprehensive guide to the most frequent IT support challenges with proven solutions for IT professionals seeking efficient problem resolution.</description>
+    </item>
+    <item>
+      <title>How AI Is Transforming IT Operations: The AIOps Revolution</title>
+      <link>https://zigoware.github.io/blog-post.html?id=aiops-transformation</link>
+      <guid isPermaLink="true">https://zigoware.github.io/blog-post.html?id=aiops-transformation</guid>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 GMT</pubDate>
+      <description>Explore how AIOps is revolutionizing IT operations through predictive analytics, intelligent automation, and enhanced incident response capabilities.</description>
+    </item>
+  </channel>
+</rss>
