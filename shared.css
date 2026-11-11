@@ -31,3 +31,64 @@
 		font-size: 72px;
 	}
 }
+
+/* Work-in-progress popup (site-notice.js) */
+.site-notice {
+	/* The theme resets all margins, which breaks the browser's default dialog centering */
+	position: fixed;
+	inset: 0;
+	margin: auto;
+	height: fit-content;
+	width: min(480px, calc(100% - 32px));
+	padding: 36px 32px 32px;
+	border: none;
+	border-radius: 16px;
+	box-shadow: 0 20px 60px rgba(7, 10, 29, 0.25);
+	text-align: center;
+	color: #070A1D;
+}
+
+.site-notice::backdrop {
+	background: rgba(7, 10, 29, 0.55);
+}
+
+.site-notice-icon {
+	display: grid;
+	place-items: center;
+	width: 64px;
+	height: 64px;
+	margin: 0 auto 16px;
+	border-radius: 50%;
+	background: #f3f1fd;
+	color: #4f2edc;
+	font-size: 28px;
+}
+
+.site-notice h2 {
+	font-size: 24px;
+	margin-bottom: 12px;
+}
+
+.site-notice p {
+	color: #6B7280;
+	line-height: 1.6;
+	margin-top: 8px;
+}
+
+.site-notice form {
+	margin-top: 24px;
+}
+
+.site-notice button {
+	border: none;
+	cursor: pointer;
+}
+
+@media (max-width: 575px) {
+	.site-notice {
+		padding: 28px 20px 24px;
+	}
+	.site-notice h2 {
+		font-size: 20px;
+	}
+}
