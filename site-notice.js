@@ -1,44 +1,24 @@
-// Shows a one-time "work in progress" popup on the first page a visitor opens.
-// Once dismissed, it stays hidden for the rest of the browser session.
+// Shows a slim "work in progress" bar pinned to the bottom of every page.
+// Its height is published as --site-banner-h so the page and scroll-to-top button can make room for it.
 (function () {
-    const STORAGE_KEY = "zigoware-notice-dismissed";
-
-    try {
-        if (sessionStorage.getItem(STORAGE_KEY)) return;
-    } catch (error) {
-        // Storage can be blocked (private mode, strict settings); just show the notice
-    }
-
     function showNotice() {
-        const dialog = document.createElement("dialog");
-        dialog.className = "site-notice";
-        dialog.setAttribute("aria-labelledby", "site-notice-title");
-        dialog.innerHTML = `
-            <div class="site-notice-icon" aria-hidden="true"><i class="fa-solid fa-person-digging"></i></div>
-            <h2 id="site-notice-title">This site is a work in progress</h2>
-            <p>Zigoware is still being built, and the blog posts here were written by AI as placeholder content for testing.</p>
-            <p>You're welcome to look around, but the posts aren't worth spending much time on yet.</p>
-            <form method="dialog">
-                <button class="theme-btn1" type="submit" autofocus>Got it</button>
-            </form>
+        const banner = document.createElement("div");
+        banner.className = "site-banner";
+        banner.setAttribute("role", "note");
+        banner.innerHTML = `
+            <i class="fa-solid fa-person-digging" aria-hidden="true"></i>
+            <span><strong>Work in progress:</strong> Zigoware is still being built, and the posts are AI-written placeholders for testing.</span>
         `;
+        document.body.appendChild(banner);
 
-        dialog.addEventListener("close", () => {
-            try {
-                sessionStorage.setItem(STORAGE_KEY, "1");
-            } catch (error) {
-                // Ignore; the notice will just show again on the next page
-            }
-            dialog.remove();
-        });
-
-        // Clicking the dimmed backdrop also dismisses the notice
-        dialog.addEventListener("click", event => {
-            if (event.target === dialog) dialog.close();
-        });
-
-        document.body.appendChild(dialog);
-        dialog.showModal();
+        const updateOffset = () =>
+            document.documentElement.style.setProperty("--site-banner-h", banner.offsetHeight + "px");
+        updateOffset();
+        if ("ResizeObserver" in window) {
+            new ResizeObserver(updateOffset).observe(banner);
+        } else {
+            window.addEventListener("resize", updateOffset);
+        }
     }
 
     if (document.readyState === "loading") {
