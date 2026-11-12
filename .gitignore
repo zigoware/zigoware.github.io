@@ -1208,3 +1208,4 @@ local-dev/node_modules/wrappy/LICENSE
 local-dev/node_modules/wrappy/package.json
 local-dev/node_modules/wrappy/README.md
 local-dev/node_modules/wrappy/wrappy.js
+.DS_Store
